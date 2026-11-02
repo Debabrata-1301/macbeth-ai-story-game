@@ -1,5 +1,8 @@
 # Macbeth AI Story Game
 
+[![Backend CI](https://github.com/Debabrata-1301/macbeth-ai-story-game/actions/workflows/backend-ci.yml/badge.svg?branch=main)](https://github.com/Debabrata-1301/macbeth-ai-story-game/actions/workflows/backend-ci.yml)
+[![Frontend CI](https://github.com/Debabrata-1301/macbeth-ai-story-game/actions/workflows/frontend-ci.yml/badge.svg?branch=main)](https://github.com/Debabrata-1301/macbeth-ai-story-game/actions/workflows/frontend-ci.yml)
+
 Macbeth AI Story Game is a local-first branching narrative application. Play as Macbeth, Lady Macbeth, Banquo, or Macduff through authored campaigns whose choices change a deterministic game state. A locally running language model writes character-specific narration for that state.
 
 Interactive language models can improvise, but open-ended generation can also contradict earlier events or reveal information a character should not know. This project keeps story progression, choice authorization, character state, and persistence in application code. The model supplies validated narration; it does not advance the game.
@@ -191,7 +194,7 @@ Two GitHub Actions workflows are defined under `.github/workflows/`:
 - `backend-ci.yml` runs Ruff and the complete backend test suite, including RAG tests, on Python 3.11, 3.13, and 3.14. Tests use temporary SQLite databases and synthetic PDF/FAISS fixtures. Coverage is printed and written as XML in the runner's temporary directory.
 - `frontend-ci.yml` uses Node.js 26 LTS, installs the lockfile with `npm ci`, runs `npm test`, and runs `npm run build` (which includes both TypeScript checks).
 
-Normal CI does not start Ollama or download models. The real-model narrative evaluation and `npm run test:e2e:local` remain opt-in because they require a separately installed local Ollama service, `qwen3:4b`, `nomic-embed-text`, and a locally built FAISS index. GitHub Actions results are available from the repository’s Actions tab. CI status badges will be added after both workflows pass.
+Normal CI does not start Ollama or download models. The real-model narrative evaluation and `npm run test:e2e:local` remain opt-in because they require a separately installed local Ollama service, `qwen3:4b`, `nomic-embed-text`, and a locally built FAISS index. GitHub Actions results are available from the repository’s Actions tab.
 
 ## API surface
 
@@ -244,7 +247,6 @@ For implementation history and evaluation details, see the [story architecture a
 
 These items are not implemented:
 
-- Add CI status badges after both GitHub Actions workflows pass.
 - Make RAG onboarding reproducible with a rights-cleared source and documented index provenance.
 - Add authentication and per-user save ownership only if multi-user or network deployment becomes a project goal.
 
