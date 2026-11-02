@@ -1,0 +1,2 @@
+/no_think
+Return only a brief JSON object with a first-person Macbeth narration. Do not include reasoning or markdown.

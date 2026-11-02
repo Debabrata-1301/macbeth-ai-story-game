@@ -1,0 +1,80 @@
+# Python environments and generated package/cache files
+.venv/
+venv/
+env/
+__pycache__/
+*.egg-info/
+*.py[cod]
+.pytest_cache/
+.pytest-tmp/
+.pytest-run-*/
+.ruff_cache/
+.mypy_cache/
+.pyre/
+.hypothesis/
+.cache/
+__pypackages__/
+.coverage
+.coverage.*
+htmlcov/
+
+# Environment files: keep only the reviewed templates
+.env*
+!.env.example
+frontend/.env*
+!frontend/.env.example
+
+# Local databases, saves, journals, and all generated/user data
+data/
+content/macbeth/source/macbeth_original.pdf
+*.sqlite
+*.sqlite3
+*.sqlite-*
+*.sqlite3-*
+*.db
+*.db-*
+*-journal
+
+# JavaScript dependencies and build/test output
+node_modules/
+dist/
+build/
+pip-wheel-metadata/
+coverage/
+frontend/test-results/
+frontend/playwright-report/
+
+# Logs and temporary/editor files
+*.log
+*.tmp
+*.temp
+*.swp
+*~
+
+# IDE and operating-system metadata
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+Desktop.ini
+__MACOSX/
+.Spotlight-V100/
+.Trashes/
+._*
+
+# Local model stores, recordings, and screenshots
+.ollama/
+ollama/
+ollama-models/
+ollama_models/
+models/blobs/
+*.gguf
+*.safetensors
+*.onnx
+*.pt
+*.pth
+recordings/
+screenshots/
+*.webm
+*.mp4
+*.mov

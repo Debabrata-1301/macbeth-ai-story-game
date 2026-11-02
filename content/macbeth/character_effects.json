@@ -1,0 +1,704 @@
+{
+  "tell_banquo": {"witness_character_ids": ["banquo"]},
+  "banquo_challenge": {"event_visibility": "public"},
+  "banquo_testify": {"event_visibility": "public"},
+  "lady_macbeth_confess": {"informed_character_ids": ["malcolm"]},
+  "lady_macbeth_reconcile": {"witness_character_ids": ["macbeth"]},
+  "macduff_warn": {"witness_character_ids": ["lady_macduff", "macduff_child"]},
+  "macduff_malcolm": {"informed_character_ids": ["malcolm"]},
+  "proceed_with_murder": {
+    "psychological_changes": {
+      "macbeth": {
+        "guilt": 25,
+        "fear": 15,
+        "stress": 20,
+        "hope": -8
+      }
+    },
+    "memory_category": "political_event",
+    "memory_importance": 95
+  },
+  "refuse_regicide": {
+    "psychological_changes": {
+      "macbeth": {
+        "hope": 12,
+        "confidence": 5,
+        "guilt": -5
+      }
+    },
+    "memory_category": "decision",
+    "memory_importance": 80
+  },
+  "claim_crown": {
+    "psychological_changes": {
+      "macbeth": {
+        "confidence": 15,
+        "stress": 8
+      }
+    },
+    "memory_category": "political_event",
+    "memory_importance": 80
+  },
+  "isolate_banquo": {
+    "psychological_changes": {
+      "macbeth": {
+        "fear": 12,
+        "stress": 8,
+        "isolation": 10
+      }
+    },
+    "relationship_changes": [
+      {
+        "character_id": "banquo",
+        "source_character_id": "macbeth",
+        "loyalty": -15,
+        "hostility": 8
+      }
+    ],
+    "memory_category": "decision",
+    "memory_importance": 50
+  },
+  "order_banquo_murder": {
+    "psychological_changes": {
+      "macbeth": {
+        "guilt": 10,
+        "fear": 15,
+        "stress": 12
+      }
+    },
+    "relationship_changes": [
+      {
+        "character_id": "banquo",
+        "source_character_id": "macbeth",
+        "loyalty": -20,
+        "hostility": 25
+      }
+    ],
+    "memory_category": "betrayal",
+    "memory_importance": 95
+  },
+  "spare_banquo": {
+    "psychological_changes": {
+      "macbeth": {
+        "hope": 8,
+        "fear": -5
+      }
+    },
+    "relationship_changes": [
+      {
+        "character_id": "banquo",
+        "source_character_id": "macbeth",
+        "trust": 15,
+        "respect": 8
+      }
+    ],
+    "memory_category": "decision",
+    "memory_importance": 80
+  },
+  "banquet_ghost": {
+    "psychological_changes": {
+      "macbeth": {
+        "fear": 25,
+        "stress": 25,
+        "emotional_stability": -15
+      }
+    },
+    "memory_category": "personal_experience",
+    "memory_importance": 90
+  },
+  "banquet_cover": {
+    "psychological_changes": {
+      "macbeth": {
+        "guilt": 8,
+        "stress": 12,
+        "isolation": 8
+      }
+    },
+    "memory_category": "political_event",
+    "memory_importance": 70
+  },
+  "yield_to_malcolm": {
+    "psychological_changes": {
+      "macbeth": {
+        "stress": -15,
+        "hope": 15
+      }
+    },
+    "memory_category": "decision",
+    "memory_importance": 85
+  },
+  "fight_to_death": {
+    "psychological_changes": {
+      "macbeth": {
+        "fear": 15,
+        "confidence": 8
+      }
+    },
+    "memory_category": "decision",
+    "memory_importance": 90
+  },
+  "confess_after_murder": {
+    "psychological_changes": {
+      "macbeth": {
+        "guilt": 8,
+        "hope": 5,
+        "stress": -8
+      }
+    },
+    "memory_category": "decision",
+    "memory_importance": 85
+  },
+  "continue_to_regicide": {
+    "psychological_changes": {
+      "macbeth": {
+        "ambition": 8,
+        "stress": 5
+      }
+    },
+    "commitment_effects": [
+      {
+        "action": "create",
+        "commitment_id": "macbeth_private_intent",
+        "kind": "secret",
+        "owner_id": "macbeth",
+        "participant_ids": [
+          "lady_macbeth"
+        ],
+        "summary": "Macbeth privately resolved to pursue Duncan?s crown.",
+        "visibility": "participants",
+        "audience_ids": [
+          "lady_macbeth"
+        ]
+      }
+    ],
+    "memory_category": "secret",
+    "memory_importance": 90
+  },
+  "lady_macbeth_ambition": {
+    "psychological_changes": {
+      "lady_macbeth": {
+        "ambition": 12,
+        "confidence": 8,
+        "hope": 4
+      }
+    },
+    "memory_category": "decision",
+    "memory_importance": 75
+  },
+  "lady_macbeth_caution": {
+    "psychological_changes": {
+      "lady_macbeth": {
+        "resolve": -3,
+        "stress": -3,
+        "hope": 5
+      }
+    },
+    "memory_category": "decision",
+    "memory_importance": 65
+  },
+  "lady_macbeth_conceal": {
+    "psychological_changes": {
+      "lady_macbeth": {
+        "guilt": 12,
+        "stress": 12,
+        "fear": 8,
+        "emotional_stability": -8
+      }
+    },
+    "commitment_effects": [
+      {
+        "action": "create",
+        "commitment_id": "lady_duncan_deed",
+        "kind": "secret",
+        "owner_id": "lady_macbeth",
+        "participant_ids": [
+          "macbeth"
+        ],
+        "summary": "Lady Macbeth helped conceal Duncan?s murder.",
+        "visibility": "participants",
+        "audience_ids": [
+          "macbeth"
+        ]
+      }
+    ],
+    "memory_category": "secret",
+    "memory_importance": 95
+  },
+  "lady_macbeth_reveal": {
+    "psychological_changes": {
+      "lady_macbeth": {
+        "guilt": 8,
+        "hope": 7
+      }
+    },
+    "commitment_effects": [
+      {
+        "action": "reveal",
+        "commitment_id": "lady_duncan_deed",
+        "kind": "secret",
+        "optional": true,
+        "summary": "Lady Macbeth helped conceal Duncan?s murder."
+      }
+    ],
+    "memory_category": "decision",
+    "memory_importance": 90
+  },
+  "lady_macbeth_stop": {
+    "psychological_changes": {
+      "lady_macbeth": {
+        "hope": 15,
+        "guilt": -8,
+        "confidence": 5
+      }
+    },
+    "memory_category": "decision",
+    "memory_importance": 90
+  },
+  "lady_macbeth_betray_banquo": {
+    "psychological_changes": {
+      "lady_macbeth": {
+        "guilt": 18,
+        "fear": 12,
+        "stress": 8
+      }
+    },
+    "relationship_changes": [
+      {
+        "character_id": "banquo",
+        "source_character_id": "lady_macbeth",
+        "hostility": 24,
+        "respect": -15
+      }
+    ],
+    "memory_category": "betrayal",
+    "memory_importance": 90
+  },
+  "lady_macbeth_warn_banquo": {
+    "psychological_changes": {
+      "lady_macbeth": {
+        "hope": 8
+      }
+    },
+    "relationship_changes": [
+      {
+        "character_id": "banquo",
+        "source_character_id": "lady_macbeth",
+        "trust": 12,
+        "affection": 8
+      }
+    ],
+    "memory_category": "decision",
+    "memory_importance": 80
+  },
+  "lady_macbeth_spare_banquo": {
+    "psychological_changes": {
+      "lady_macbeth": {
+        "hope": 8,
+        "guilt": -4
+      }
+    },
+    "relationship_changes": [
+      {
+        "character_id": "banquo",
+        "source_character_id": "lady_macbeth",
+        "trust": 15,
+        "respect": 8
+      }
+    ],
+    "memory_category": "decision",
+    "memory_importance": 80
+  },
+  "lady_macbeth_reconcile": {
+    "psychological_changes": {
+      "lady_macbeth": {
+        "hope": 20,
+        "guilt": -5,
+        "stress": -8
+      }
+    },
+    "relationship_changes": [
+      {
+        "character_id": "macbeth",
+        "source_character_id": "lady_macbeth",
+        "trust": 12,
+        "affection": 20
+      }
+    ],
+    "memory_category": "decision",
+    "memory_importance": 90
+  },
+  "lady_macbeth_escape": {
+    "psychological_changes": {
+      "lady_macbeth": {
+        "hope": 12,
+        "stress": -8
+      }
+    },
+    "memory_category": "decision",
+    "memory_importance": 80
+  },
+  "banquo_investigate": {
+    "psychological_changes": {
+      "banquo": {
+        "fear": 4
+      }
+    },
+    "memory_category": "personal_experience",
+    "memory_importance": 65
+  },
+  "banquo_share": {
+    "psychological_changes": {
+      "banquo": {
+        "resolve": 8,
+        "hope": 5
+      }
+    },
+    "commitment_effects": [
+      {
+        "action": "create",
+        "commitment_id": "banquo_protect_fleance",
+        "kind": "promise",
+        "owner_id": "banquo",
+        "participant_ids": [
+          "fleance"
+        ],
+        "summary": "Banquo promised to protect Fleance.",
+        "visibility": "participants",
+        "audience_ids": [
+          "fleance"
+        ]
+      }
+    ],
+    "memory_category": "promise",
+    "memory_importance": 90
+  },
+  "banquo_trust": {
+    "psychological_changes": {
+      "banquo": {
+        "hope": 6
+      }
+    },
+    "relationship_changes": [
+      {
+        "character_id": "macbeth",
+        "source_character_id": "banquo",
+        "trust": 15,
+        "loyalty": 10,
+        "affection": 8
+      }
+    ],
+    "memory_category": "decision",
+    "memory_importance": 75
+  },
+  "banquo_challenge": {
+    "psychological_changes": {
+      "banquo": {
+        "fear": 12,
+        "resolve": 8,
+        "suspicion": 15
+      }
+    },
+    "relationship_changes": [
+      {
+        "character_id": "macbeth",
+        "source_character_id": "banquo",
+        "hostility": 15,
+        "respect": 5
+      }
+    ],
+    "knowledge_observations": [
+      {
+        "character_id": "banquo",
+        "content": "Macbeth may be concealing his role in the violence around the throne.",
+        "category": "suspicion",
+        "confidence": 55,
+        "source": "Banquo?s investigation at court",
+        "related_characters": [
+          "macbeth"
+        ],
+        "resolved_by_fact": "macbeth_arranged_banquo_ambush"
+      }
+    ],
+    "memory_category": "personal_experience",
+    "memory_importance": 90
+  },
+  "banquo_escape": {
+    "psychological_changes": {
+      "banquo": {
+        "fear": 5,
+        "hope": 8
+      }
+    },
+    "commitment_effects": [
+      {
+        "action": "fulfill",
+        "commitment_id": "banquo_protect_fleance",
+        "kind": "promise",
+        "optional": true,
+        "summary": "Banquo promised to protect Fleance."
+      }
+    ],
+    "memory_category": "decision",
+    "memory_importance": 90
+  },
+  "banquo_sacrifice": {
+    "psychological_changes": {
+      "banquo": {
+        "resolve": 15,
+        "fear": 10
+      }
+    },
+    "commitment_effects": [
+      {
+        "action": "fulfill",
+        "commitment_id": "banquo_protect_fleance",
+        "kind": "promise",
+        "optional": true,
+        "summary": "Banquo promised to protect Fleance."
+      }
+    ],
+    "memory_category": "loss",
+    "memory_importance": 90
+  },
+  "banquo_fight": {
+    "psychological_changes": {
+      "banquo": {
+        "resolve": 8,
+        "fear": 12
+      }
+    },
+    "commitment_effects": [
+      {
+        "action": "fulfill",
+        "commitment_id": "banquo_protect_fleance",
+        "kind": "promise",
+        "optional": true,
+        "summary": "Banquo promised to protect Fleance."
+      }
+    ],
+    "memory_category": "decision",
+    "memory_importance": 90
+  },
+  "banquo_testify": {
+    "knowledge_grants": {
+      "banquo": [
+        "macbeth_arranged_banquo_ambush"
+      ]
+    },
+    "memory_category": "political_event",
+    "memory_importance": 95
+  },
+  "macduff_family": {
+    "psychological_changes": {
+      "macduff": {
+        "hope": 8,
+        "confidence": 5
+      }
+    },
+    "memory_category": "family_event",
+    "memory_importance": 80
+  },
+  "macduff_warn": {
+    "psychological_changes": {
+      "macduff": {
+        "fear": 8,
+        "stress": 8,
+        "resolve": 8
+      }
+    },
+    "commitment_effects": [
+      {
+        "action": "create",
+        "commitment_id": "macduff_household_safety",
+        "kind": "promise",
+        "owner_id": "macduff",
+        "participant_ids": [
+          "lady_macduff",
+          "macduff_child"
+        ],
+        "summary": "Macduff vowed to protect his household.",
+        "visibility": "participants",
+        "audience_ids": [
+          "lady_macduff",
+          "macduff_child"
+        ]
+      }
+    ],
+    "memory_category": "promise",
+    "memory_importance": 90
+  },
+  "macduff_evacuate": {
+    "psychological_changes": {
+      "macduff": {
+        "hope": 8,
+        "confidence": 5
+      }
+    },
+    "commitment_effects": [
+      {
+        "action": "fulfill",
+        "commitment_id": "macduff_household_safety",
+        "kind": "promise",
+        "optional": true,
+        "summary": "Macduff vowed to protect his household."
+      }
+    ],
+    "memory_category": "family_event",
+    "memory_importance": 95
+  },
+  "macduff_hide": {
+    "psychological_changes": {
+      "macduff": {
+        "hope": 8,
+        "confidence": 5
+      }
+    },
+    "commitment_effects": [
+      {
+        "action": "fulfill",
+        "commitment_id": "macduff_household_safety",
+        "kind": "promise",
+        "optional": true,
+        "summary": "Macduff vowed to protect his household."
+      }
+    ],
+    "memory_category": "family_event",
+    "memory_importance": 95
+  },
+  "macduff_depart": {
+    "psychological_changes": {
+      "macduff": {
+        "guilt": 15,
+        "fear": 12,
+        "stress": 18,
+        "hope": -10
+      }
+    },
+    "commitment_effects": [
+      {
+        "action": "breach",
+        "commitment_id": "macduff_household_safety",
+        "kind": "promise",
+        "optional": true,
+        "summary": "Macduff vowed to protect his household."
+      }
+    ],
+    "memory_category": "loss",
+    "memory_importance": 95
+  },
+  "macduff_malcolm": {
+    "psychological_changes": {
+      "macduff": {
+        "confidence": 8,
+        "hope": 6
+      }
+    },
+    "commitment_effects": [
+      {
+        "action": "create",
+        "commitment_id": "macduff_malcolm_contact",
+        "kind": "secret",
+        "owner_id": "macduff",
+        "participant_ids": [
+          "malcolm"
+        ],
+        "summary": "Macduff and Malcolm made a private political arrangement.",
+        "visibility": "participants",
+        "audience_ids": [
+          "malcolm"
+        ]
+      }
+    ],
+    "memory_category": "secret",
+    "memory_importance": 85
+  },
+  "macduff_justice": {
+    "psychological_changes": {
+      "macduff": {
+        "hope": 12,
+        "confidence": 10,
+        "resolve": 8
+      }
+    },
+    "relationship_changes": [
+      {
+        "character_id": "malcolm",
+        "source_character_id": "macduff",
+        "respect": 15,
+        "loyalty": 10
+      }
+    ],
+    "commitment_effects": [
+      {
+        "action": "create",
+        "commitment_id": "macduff_restore_law",
+        "kind": "promise",
+        "owner_id": "macduff",
+        "participant_ids": [
+          "malcolm"
+        ],
+        "summary": "Macduff pledged to help restore lawful rule.",
+        "visibility": "participants"
+      }
+    ],
+    "memory_category": "decision",
+    "memory_importance": 90
+  },
+  "macduff_trial": {
+    "psychological_changes": {
+      "macduff": {
+        "confidence": 8,
+        "hope": 8
+      }
+    },
+    "commitment_effects": [
+      {
+        "action": "fulfill",
+        "commitment_id": "macduff_restore_law",
+        "kind": "promise",
+        "optional": true,
+        "summary": "Macduff pledged to help restore lawful rule."
+      }
+    ],
+    "memory_category": "decision",
+    "memory_importance": 90
+  },
+  "macduff_revenge": {
+    "psychological_changes": {
+      "macduff": {
+        "guilt": 5,
+        "stress": 8,
+        "resolve": 10
+      }
+    },
+    "memory_category": "decision",
+    "memory_importance": 90
+  },
+  "macduff_terms": {
+    "psychological_changes": {
+      "macduff": {
+        "hope": 8,
+        "stress": -5
+      }
+    },
+    "commitment_effects": [
+      {
+        "action": "reveal",
+        "commitment_id": "macduff_malcolm_contact",
+        "kind": "secret",
+        "optional": true,
+        "summary": "Macduff and Malcolm made a private political arrangement."
+      }
+    ],
+    "memory_category": "decision",
+    "memory_importance": 80
+  },
+  "honor_banquo": {
+    "conditions": {
+      "relationship_character": "banquo",
+      "min_trust": 5
+    },
+    "memory_category": "decision",
+    "memory_importance": 70
+  }
+}

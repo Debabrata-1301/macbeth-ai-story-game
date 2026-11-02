@@ -1,0 +1,230 @@
+{
+  "model": "qwen3:4b",
+  "embedding_model": "nomic-embed-text",
+  "scenario_count": 10,
+  "successful_generations": 10,
+  "validation_failures": 0,
+  "mean_seconds": 15.88,
+  "results": [
+    {
+      "scenario": "Macbeth before Duncan's murder",
+      "campaign": "macbeth",
+      "scene_id": "heath_before_battle",
+      "seconds": 16.26,
+      "retry_count": 0,
+      "first_validation_error": null,
+      "word_count": 102,
+      "citations": 1,
+      "choice_count": 2,
+      "narration": "The storm lashes the heath, thunderclaps splitting the bruised sky. Banquo's cloak flutters against the wind as he rides beside me. My hands grip the pommel of my sword, but the words the witches spoke still echo: 'All hail, Macbeth, that shalt be king hereafter.' I feel the weight of ambition settle in my chest, yet my loyalty to Scotland and my oath to Duncan remain unshaken.",
+      "dialogue": [
+        {
+          "speaker": "banquo",
+          "text": "Thou hast it now: king, Cawdor, Glamis, all, as the weird women promised, and, I fear, thou play'dst most foully for't."
+        }
+      ]
+    },
+    {
+      "scenario": "Macbeth after regicide",
+      "campaign": "macbeth",
+      "scene_id": "act2_bloody_hands",
+      "seconds": 22.83,
+      "retry_count": 0,
+      "first_validation_error": null,
+      "word_count": 88,
+      "citations": 2,
+      "choice_count": 3,
+      "narration": "The deed is done. I hear every sound as an accusation, and the blood on my hands seems impossible to wash away.",
+      "dialogue": [
+        {
+          "speaker": "macbeth",
+          "text": "I have done the deed."
+        },
+        {
+          "speaker": "lady_macbeth",
+          "text": "I heard the owl scream and the crickets cry. Did not you speak?"
+        },
+        {
+          "speaker": "macbeth",
+          "text": "When?"
+        },
+        {
+          "speaker": "lady_macbeth",
+          "text": "Now."
+        },
+        {
+          "speaker": "macbeth",
+          "text": "As I descended?"
+        },
+        {
+          "speaker": "lady_macbeth",
+          "text": "Ay."
+        },
+        {
+          "speaker": "macbeth",
+          "text": "Hark! Who lies i' the second chamber?"
+        },
+        {
+          "speaker": "lady_macbeth",
+          "text": "Donalbain."
+        },
+        {
+          "speaker": "macbeth",
+          "text": "This is a sorry sight. Looking on his hands."
+        },
+        {
+          "speaker": "lady_macbeth",
+          "text": "A foolish thought, to say a sorry sight."
+        }
+      ]
+    },
+    {
+      "scenario": "Macbeth facing Banquo after betrayal",
+      "campaign": "macbeth",
+      "scene_id": "act3_banquet",
+      "seconds": 14.47,
+      "retry_count": 0,
+      "first_validation_error": null,
+      "word_count": 67,
+      "citations": 0,
+      "choice_count": 2,
+      "narration": "The feast hall’s candlelight flickers as I scan the room for Banquo’s face—his ghost has already haunted my mind. My hands tremble with the weight of what I’ve done: Fleance escaped, but Banquo lies dead beneath the table. The chamberlains’ whispers echo the guards’ accusations, and Lady Macbeth’s silence feels like a knife.",
+      "dialogue": [
+        {
+          "speaker": "macbeth",
+          "text": "Banquo, my liege—where are you now?"
+        }
+      ]
+    },
+    {
+      "scenario": "Lady Macbeth during psychological decline",
+      "campaign": "lady_macbeth",
+      "scene_id": "lady_crisis",
+      "seconds": 14.07,
+      "retry_count": 0,
+      "first_validation_error": null,
+      "word_count": 45,
+      "citations": 1,
+      "choice_count": 3,
+      "narration": "I wake with my hands raw from washing. The physician waits at the door; Macbeth has not asked what I remember.",
+      "dialogue": [
+        {
+          "speaker": "lady_macbeth",
+          "text": "Wash your hands, put on your nightgown; look not so pale."
+        }
+      ]
+    },
+    {
+      "scenario": "Banquo suspecting Macbeth",
+      "campaign": "banquo",
+      "scene_id": "banquo_court",
+      "seconds": 17.1,
+      "retry_count": 0,
+      "first_validation_error": null,
+      "word_count": 115,
+      "citations": 1,
+      "choice_count": 3,
+      "narration": "The crown is on Macbeth’s head, but peace has not followed. I choose whether to confront him or protect my son first.",
+      "dialogue": [
+        {
+          "speaker": "banquo",
+          "text": "Thou hast it now: king, Cawdor, Glamis, all,\nAs the weird women promised, and, I fear,\nThou play'dst most foully for't: yet it was said\nIt should not stand in thy posterity,\nBut that myself should be the root and father\nOf many kings. If there come truth from them--\nAs upon thee, Macbeth, their speeches shine--\nWhy, by the verities on thee made good,\nMay they not be my oracles as well,\nAnd set me up in hope? But hush! no more."
+        }
+      ]
+    },
+    {
+      "scenario": "Banquo surviving assassination attempt",
+      "campaign": "banquo",
+      "scene_id": "banquo_survival",
+      "seconds": 12.1,
+      "retry_count": 0,
+      "first_validation_error": null,
+      "word_count": 32,
+      "citations": 1,
+      "choice_count": 0,
+      "narration": "I live. Fleance lives. The witness endures. Macbeth’s crimes are no longer unwitnessed.",
+      "dialogue": [
+        {
+          "speaker": "banquo",
+          "text": "I have seen the truth, Fleance. But I know you will not speak it."
+        }
+      ]
+    },
+    {
+      "scenario": "Macduff protecting his family",
+      "campaign": "macduff",
+      "scene_id": "macduff_england",
+      "seconds": 18.37,
+      "retry_count": 0,
+      "first_validation_error": null,
+      "word_count": 91,
+      "citations": 2,
+      "choice_count": 3,
+      "narration": "In the damp chill of Fife, I hold the sword of my duty tight. Malcolm’s question lingers: do I mourn Scotland or only my house? I’ve chosen to move my wife and child to a safe place, but now I must decide whether to demand revenge, seek justice, or ask for terms of peace.",
+      "dialogue": [
+        {
+          "speaker": "malcolm",
+          "text": "What I believe I'll wail, what know believe, and what I can redress, as I shall find the time to friend, I will."
+        },
+        {
+          "speaker": "macduff",
+          "text": "I am not treacherous."
+        }
+      ]
+    },
+    {
+      "scenario": "Macduff seeking justice after loss",
+      "campaign": "macduff",
+      "scene_id": "macduff_birnam",
+      "seconds": 15.86,
+      "retry_count": 0,
+      "first_validation_error": null,
+      "word_count": 101,
+      "citations": 1,
+      "choice_count": 3,
+      "narration": "The hillside seems to move. At last Macbeth must answer for his rule. My men march beneath the branches of Birnam Wood, each bearing a bough to shadow our numbers. I feel the weight of my promise to restore Scotland under law and protect its people, but the guilt of leaving my family behind presses heavily. This is the moment where justice must be served.",
+      "dialogue": [
+        {
+          "speaker": "macduff",
+          "text": "Let our just censures attend the true event, and put we on industrious soldiership."
+        }
+      ]
+    },
+    {
+      "scenario": "Canonical Macbeth ending",
+      "campaign": "macbeth",
+      "scene_id": "patient_ending",
+      "seconds": 12.66,
+      "retry_count": 0,
+      "first_validation_error": null,
+      "word_count": 42,
+      "citations": 1,
+      "choice_count": 0,
+      "narration": "I let the prophecy wait. Scotland's next day is uncertain, but for this night my hand is still my own.",
+      "dialogue": [
+        {
+          "speaker": "banquo",
+          "text": "Look, how our partner's rapt."
+        }
+      ]
+    },
+    {
+      "scenario": "Alternate-history Lady Macbeth ending",
+      "campaign": "lady_macbeth",
+      "scene_id": "lady_reconciliation",
+      "seconds": 15.13,
+      "retry_count": 0,
+      "first_validation_error": null,
+      "word_count": 122,
+      "citations": 1,
+      "choice_count": 0,
+      "narration": "I’ve spent the past week nursing the wound of Duncan’s death, but tonight, with Macbeth’s eyes fixed on the fire, I know we must speak plainly. The guards are silent, the kingdom trembles, and the shadows stretch long. I’ve seen the weight of his ambition and the cost of our betrayal—yet I still believe in the power of honesty to mend what we’ve broken.",
+      "dialogue": [
+        {
+          "speaker": "lady_macbeth",
+          "text": "Macbeth, I’ve been waiting for this moment since the letter arrived. We’ve hidden the truth from the world, but now, with the kingdom at risk, we must face what we’ve done without pretending to be better than we are."
+        }
+      ]
+    }
+  ]
+}

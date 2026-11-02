@@ -1,0 +1,104 @@
+{
+  "phase": "7.6",
+  "assessment_date": "2026-11-01",
+  "release_recommendation": "Passed with limitations: local personal beta on loopback only; not ready for public/shared-network deployment.",
+  "production_database_used": false,
+  "matrix": [
+    {
+      "area": "Campaign integration, boundaries, and endings",
+      "status": "Passed",
+      "evidence": "Four independent campaign IDs; 60 scenes, 107 choices, 18 endings; all four campaigns save mid-route, resume after API restart, and complete a representative route; direct route tests cover all 18 ending IDs.",
+      "tests": ["159 Python tests passed", "Four API-level SQLite restart journeys", "10 real Ollama evaluation scenarios across all four campaigns"],
+      "limitations": ["Separate game IDs are independent timelines and do not synchronize actions."],
+      "outstanding_actions": []
+    },
+    {
+      "area": "Character simulation, memory, and knowledge privacy",
+      "status": "Passed",
+      "evidence": "Deterministic psychological and relationship effects, owner-scoped memories/commitments, uncertainty distinction, and private event visibility are persisted within the game save.",
+      "tests": ["Campaign and character simulation route tests", "Legacy event without visibility metadata defaults to unknown", "SQLite restart and load tests"],
+      "limitations": ["Generated prose semantic truth checking covers selected contradictions, not every claim."],
+      "outstanding_actions": []
+    },
+    {
+      "area": "Save compatibility and persistence",
+      "status": "Passed with limitations",
+      "evidence": "Missing campaign/state/event fields hydrate through conservative defaults; transactions, revision checks, rollback, restart, and ordered events pass tests; no SQLite schema migration was needed.",
+      "tests": ["Legacy campaign fixture", "Legacy event visibility fixture", "Persistence/restart/rollback suite"],
+      "limitations": ["No production DB was modified; manual backup restore drill was not run."],
+      "outstanding_actions": ["Run the documented restore-to-separate-file exercise before public distribution."]
+    },
+    {
+      "area": "API security and local deployment boundary",
+      "status": "Passed with limitations",
+      "evidence": "Current local runner uses loopback and isolated temporary SQLite; validation and generic storage errors are covered; focused source credential scan found no obvious embedded credentials.",
+      "tests": ["API request validation and storage failure tests", "Local loopback Playwright smoke"],
+      "limitations": ["No authentication, authorization, TLS, origin policy, rate/body limits, or per-user save ownership."],
+      "outstanding_actions": ["Keep bound to 127.0.0.1. Add authenticated boundary and operational controls before any public/shared-network use."]
+    },
+    {
+      "area": "RAG grounding and provenance",
+      "status": "Passed with limitations",
+      "evidence": "Existing 153-chunk index was used; citations are validated against returned chunks; canonical evidence is not treated as proof in alternate timelines; embedding model readiness probe passed.",
+      "tests": ["RAG unit suite", "10-scenario real-model evaluation", "Real Ollama Playwright smoke"],
+      "limitations": ["Index was not rebuilt or re-audited; local corpus/index availability is required for retrieval."],
+      "outstanding_actions": []
+    },
+    {
+      "area": "Ollama availability and inference",
+      "status": "Passed",
+      "evidence": "qwen3:4b and nomic-embed-text available locally; exact model-tag checks and embedding probe pass; real generation returns validated narration.",
+      "tests": ["Model availability unit tests", "Benchmark generation 7.03s; embedding probe 8.29s", "Real Playwright generation HTTP 200 without error"],
+      "limitations": ["Latency varies by model cold start and available system memory."],
+      "outstanding_actions": []
+    },
+    {
+      "area": "Python test and lint suite",
+      "status": "Passed",
+      "evidence": "159 passed; 83% line coverage; Ruff clean.",
+      "tests": ["pytest -q --basetemp=.pytest-tmp", "ruff check src tests"],
+      "limitations": ["One upstream AnyIO/Pytest deprecation warning; coverage is not complete."],
+      "outstanding_actions": []
+    },
+    {
+      "area": "Frontend tests and production build",
+      "status": "Passed",
+      "evidence": "29 Vitest tests pass; both TypeScript projects and Vite production build pass; 42 modules built.",
+      "tests": ["npm test", "npm run build"],
+      "limitations": [],
+      "outstanding_actions": []
+    },
+    {
+      "area": "Mocked and real browser integration",
+      "status": "Passed",
+      "evidence": "Mocked suite: 9 passed in 16.8s. Real local Ollama: 1 passed in 28.3s; save/resume/delete on temporary SQLite.",
+      "tests": ["npm run test:e2e", "npm run test:e2e:local"],
+      "limitations": ["Mocked browser suite does not measure model quality; real run depends on installed local models and FAISS index."],
+      "outstanding_actions": []
+    },
+    {
+      "area": "Real narrative evaluation and performance",
+      "status": "Passed with limitations",
+      "evidence": "10/10 structured responses; no retry or validation failure; mean 15.88s and range 12.10–22.83s; RTX 3050 6GB observed.",
+      "tests": ["scripts/evaluate_narrative.py", "scripts/benchmark_local_inference.py --prompt-file scripts/smoke_prompt.txt"],
+      "limitations": ["Ten fixed scenarios and one generation probe are smoke measurements, not a load/soak or broad human evaluation; no continuous VRAM/RAM profile."],
+      "outstanding_actions": []
+    },
+    {
+      "area": "Dependency advisory checks",
+      "status": "Passed with limitations",
+      "evidence": "npm audit offline reports 0 vulnerabilities across 200 dependency entries; pip check reports no broken requirements.",
+      "tests": ["npm audit --offline --json", "python -m pip check"],
+      "limitations": ["No online npm advisory scan; pip-audit is not installed and no Python vulnerability audit ran."],
+      "outstanding_actions": ["Run online frontend and Python dependency advisory scans in network-enabled release CI."]
+    },
+    {
+      "area": "Public deployment",
+      "status": "Not tested",
+      "evidence": "No public deployment was attempted; current application is a local single-user service.",
+      "tests": [],
+      "limitations": ["Public exposure would allow unauthenticated save access/deletion and local inference requests."],
+      "outstanding_actions": ["Do not expose publicly until authentication, per-user ownership, TLS, origin controls, rate/request limits, monitoring, and recovery operations are in place and tested."]
+    }
+  ]
+}

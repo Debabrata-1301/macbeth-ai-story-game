@@ -1,0 +1,26 @@
+[
+  {
+    "speaker_id": "duncan",
+    "display_name": "Duncan"
+  },
+  {
+    "speaker_id": "weird_sisters",
+    "display_name": "The Weird Sisters"
+  },
+  {
+    "speaker_id": "malcolm",
+    "display_name": "Malcolm"
+  },
+  {
+    "speaker_id": "fleance",
+    "display_name": "Fleance"
+  },
+  {
+    "speaker_id": "lady_macduff",
+    "display_name": "Lady Macduff"
+  },
+  {
+    "speaker_id": "macduff_child",
+    "display_name": "Macduff's child"
+  }
+]

@@ -1,0 +1,2204 @@
+[
+  {
+    "scene_id": "heath_before_battle",
+    "title": "The Heath Before Battle",
+    "location": "A storm-swept heath near Forres",
+    "canonical_reference": "Inspired by Act 1, Scene 1; this atmospheric framing is original game text.",
+    "participants": [
+      "macbeth",
+      "banquo"
+    ],
+    "summary": "A storm gathers over Scotland as the generals ride toward Forres.",
+    "opening_narration": "The wind scours the heath. I ride beneath a bruised sky, while thunder rolls over the battlefield behind us.",
+    "available_choices": [
+      {
+        "choice_id": "press_to_forres",
+        "action_id": "ride_on",
+        "description": "Ride on toward Forres with Banquo.",
+        "next_scene_id": "weird_sisters",
+        "state_flags": {
+          "reached_forres": true
+        }
+      },
+      {
+        "choice_id": "search_the_heath",
+        "action_id": "search_heath",
+        "description": "Pause and study the strange lights on the heath.",
+        "next_scene_id": "weird_sisters",
+        "state_flags": {
+          "reached_forres": true,
+          "watched_heath": true
+        },
+        "character_changes": {
+          "macbeth": {
+            "suspicion": 5
+          }
+        }
+      }
+    ],
+    "source_classification": "alternate_history",
+    "source_act_id": null,
+    "source_scene_id": null
+  },
+  {
+    "scene_id": "weird_sisters",
+    "title": "Fair Is Foul",
+    "location": "A desolate heath",
+    "canonical_reference": "Macbeth, Act 1, Scene 3 (adapted situation; original game narration).",
+    "participants": [
+      "macbeth",
+      "banquo",
+      "weird_sisters"
+    ],
+    "summary": "The sisters hail Macbeth with titles and prophecy; their words unsettle both men.",
+    "opening_narration": "I hear the sisters name me Thane of Cawdor, then king hereafter. Their words strike like a blade laid gently against the mind.",
+    "available_choices": [
+      {
+        "choice_id": "tell_banquo",
+        "action_id": "share_prophecy",
+        "description": "Tell Banquo you will take the prophecy seriously.",
+        "actor_id": "macbeth",
+        "next_scene_id": "forres_hopeful",
+        "state_flags": {
+          "shared_prophecy": true
+        },
+        "relationship_changes": [
+          {
+            "character_id": "banquo",
+            "source_character_id": "macbeth",
+            "trust": 10
+          }
+        ],
+        "knowledge_grants": {
+          "macbeth": [
+            "witches_prophesied_kingship"
+          ],
+          "banquo": [
+            "witches_prophesied_kingship"
+          ]
+        }
+      },
+      {
+        "choice_id": "hide_prophecy",
+        "action_id": "conceal_prophecy",
+        "description": "Keep your thoughts to yourself and ride for Forres.",
+        "next_scene_id": "forres_shadowed",
+        "state_flags": {
+          "concealed_prophecy": true,
+          "reached_forres": true
+        },
+        "character_changes": {
+          "macbeth": {
+            "suspicion": 10
+          }
+        },
+        "knowledge_grants": {
+          "macbeth": [
+            "witches_prophesied_kingship"
+          ],
+          "banquo": [
+            "witches_prophesied_kingship"
+          ]
+        }
+      }
+    ],
+    "source_classification": "canonical_adaptation",
+    "source_act_id": "act_1",
+    "source_scene_id": "scene_3"
+  },
+  {
+    "scene_id": "forres_hopeful",
+    "title": "News at Forres",
+    "location": "The royal camp at Forres",
+    "canonical_reference": "Inspired by Macbeth, Act 1, Scene 3; alternate dialogue and choices are original game content.",
+    "participants": [
+      "macbeth",
+      "banquo",
+      "duncan"
+    ],
+    "summary": "Duncan's welcome gives Macbeth a chance to speak openly with Banquo.",
+    "opening_narration": "Duncan greets me with honor. Banquo watches my face; between us, the prophecy no longer feels like a private dream.",
+    "available_choices": [
+      {
+        "choice_id": "seek_counsel",
+        "action_id": "ask_banquo_counsel",
+        "description": "Ask Banquo to help you judge the prophecy wisely.",
+        "next_scene_id": "banquo_counsel",
+        "conditions": {
+          "required_flags": {
+            "reached_forres": true,
+            "shared_prophecy": true
+          }
+        },
+        "state_flags": {
+          "sought_counsel": true
+        }
+      },
+      {
+        "choice_id": "write_to_lady",
+        "action_id": "send_news",
+        "description": "Send Lady Macbeth a measured account of the prophecy.",
+        "next_scene_id": "inverness_letter",
+        "knowledge_grants": {
+          "macbeth": [
+            "macbeth_shared_prophecy"
+          ],
+          "lady_macbeth": [
+            "macbeth_shared_prophecy"
+          ]
+        },
+        "conditions": {
+          "required_flags": {
+            "reached_forres": true
+          }
+        }
+      }
+    ],
+    "source_classification": "canonical_adaptation",
+    "source_act_id": "act_1",
+    "source_scene_id": "scene_3"
+  },
+  {
+    "scene_id": "forres_shadowed",
+    "title": "A Private Omen",
+    "location": "A quiet passage in Forres",
+    "canonical_reference": "Alternate-history scene created for this game; it is not Shakespeare's canonical text.",
+    "participants": [
+      "macbeth"
+    ],
+    "summary": "Keeping the prophecy secret leaves Macbeth alone with his growing suspicion.",
+    "opening_narration": "I conceal the sisters' words. In the quiet passage, every footfall sounds like someone already knows.",
+    "available_choices": [
+      {
+        "choice_id": "confide_in_lady",
+        "action_id": "write_confession",
+        "description": "Write Lady Macbeth the truth before doubt hardens.",
+        "next_scene_id": "inverness_letter",
+        "conditions": {
+          "required_flags": {
+            "reached_forres": true,
+            "concealed_prophecy": true
+          }
+        },
+        "knowledge_grants": {
+          "macbeth": [
+            "macbeth_shared_prophecy"
+          ],
+          "lady_macbeth": [
+            "macbeth_shared_prophecy"
+          ]
+        }
+      },
+      {
+        "choice_id": "leave_for_inverness",
+        "action_id": "depart_alone",
+        "description": "Leave Forres without telling anyone.",
+        "next_scene_id": "solitary_road",
+        "state_flags": {
+          "travelled_alone": true
+        },
+        "conditions": {
+          "required_flags": {
+            "reached_forres": true
+          }
+        }
+      }
+    ],
+    "source_classification": "alternate_history",
+    "source_act_id": null,
+    "source_scene_id": null
+  },
+  {
+    "scene_id": "banquo_counsel",
+    "title": "A Friend's Warning",
+    "location": "An orchard at Forres",
+    "canonical_reference": "Alternate-history scene created for this game; it is not Shakespeare's canonical text.",
+    "participants": [
+      "macbeth",
+      "banquo"
+    ],
+    "summary": "Banquo counsels patience, and Macbeth must choose whether to heed him.",
+    "opening_narration": "Banquo speaks of evil instruments telling small truths to win great harm. I listen, with the crown's shadow still before me.",
+    "available_choices": [
+      {
+        "choice_id": "heed_banquo",
+        "action_id": "choose_patience",
+        "description": "Resolve to wait and let events prove themselves.",
+        "next_scene_id": "patient_ending",
+        "conditions": {
+          "required_flags": {
+            "sought_counsel": true
+          }
+        }
+      },
+      {
+        "choice_id": "reject_warning",
+        "action_id": "choose_ambition",
+        "description": "Thank Banquo, but keep the crown in your thoughts.",
+        "next_scene_id": "inverness_letter",
+        "character_changes": {
+          "macbeth": {
+            "ambition": 10
+          }
+        },
+        "conditions": {
+          "required_flags": {
+            "sought_counsel": true
+          }
+        }
+      }
+    ],
+    "source_classification": "alternate_history",
+    "source_act_id": null,
+    "source_scene_id": null
+  },
+  {
+    "scene_id": "inverness_letter",
+    "title": "A Letter at Inverness",
+    "location": "Inverness Castle",
+    "canonical_reference": "Inspired by Macbeth, Act 1, Scene 5; the letter and choices are original game text.",
+    "participants": [
+      "macbeth",
+      "lady_macbeth"
+    ],
+    "summary": "Macbeth's news reaches Inverness, where Lady Macbeth considers how to answer.",
+    "opening_narration": "The letter travels north. I imagine Lady Macbeth reading each line by candlelight, weighing what I have not yet dared to say aloud.",
+    "available_choices": [
+      {
+        "choice_id": "lady_counsel_caution",
+        "action_id": "counsel_caution",
+        "description": "Answer the news with caution and wait for Duncan's next move.",
+        "next_scene_id": "patient_ending",
+        "conditions": {
+          "required_known_facts": [
+            "macbeth_shared_prophecy"
+          ],
+          "knowledge_character_id": "lady_macbeth"
+        }
+      },
+      {
+        "choice_id": "lady_counsel_ambition",
+        "action_id": "counsel_ambition",
+        "description": "Let ambition guide your next steps together.",
+        "next_scene_id": "ambition_ending",
+        "character_changes": {
+          "macbeth": {
+            "ambition": 10
+          },
+          "lady_macbeth": {
+            "ambition": 10
+          }
+        }
+      },
+      {
+        "choice_id": "continue_to_regicide",
+        "action_id": "accept_duncan_visit",
+        "description": "Prepare for Duncan's arrival and decide what kind of ruler you will become.",
+        "actor_id": "macbeth",
+        "next_scene_id": "act2_dagger_vision",
+        "state_flags": {
+          "duncan_visit_expected": true
+        },
+        "knowledge_grants": {
+          "macbeth": [
+            "duncan_visit_expected"
+          ]
+        }
+      }
+    ],
+    "source_classification": "canonical_adaptation",
+    "source_act_id": "act_1",
+    "source_scene_id": "scene_5"
+  },
+  {
+    "scene_id": "solitary_road",
+    "title": "The Road Alone",
+    "location": "The road to Inverness",
+    "canonical_reference": "Alternate-history scene created for this game; it is not Shakespeare's canonical text.",
+    "participants": [
+      "macbeth"
+    ],
+    "summary": "Macbeth travels alone, having left the prophecy unspoken.",
+    "opening_narration": "I ride north alone. The secret keeps pace beside me, and the road offers no counsel.",
+    "available_choices": [
+      {
+        "choice_id": "end_in_isolation",
+        "action_id": "accept_isolation",
+        "description": "End this chapter in solitude, with the choice unresolved.",
+        "next_scene_id": "solitary_ending",
+        "conditions": {
+          "required_flags": {
+            "travelled_alone": true
+          }
+        }
+      }
+    ],
+    "source_classification": "alternate_history",
+    "source_act_id": null,
+    "source_scene_id": null
+  },
+  {
+    "scene_id": "patient_ending",
+    "title": "A Patient Crown",
+    "location": "Forres",
+    "canonical_reference": "Alternate-history ending created for this game; it is not Shakespeare's canonical text.",
+    "participants": [
+      "macbeth",
+      "banquo",
+      "lady_macbeth"
+    ],
+    "summary": "Macbeth chooses patience, leaving the future open rather than forcing the prophecy.",
+    "opening_narration": "I let the prophecy wait. Scotland's next day is uncertain, but for this night my hand is still my own.",
+    "available_choices": [],
+    "is_ending": true,
+    "ending_id": "patient_path",
+    "source_classification": "alternate_history",
+    "source_act_id": null,
+    "source_scene_id": null
+  },
+  {
+    "scene_id": "ambition_ending",
+    "title": "The Crown's Shadow",
+    "location": "Inverness Castle",
+    "canonical_reference": "Alternate-history ending created for this game; it is not Shakespeare's canonical text.",
+    "participants": [
+      "macbeth",
+      "lady_macbeth"
+    ],
+    "summary": "Macbeth and Lady Macbeth choose to pursue power, setting a dangerous alternate path in motion.",
+    "opening_narration": "Together we turn toward the crown. The choice is ours, and so will be the cost.",
+    "available_choices": [],
+    "is_ending": true,
+    "ending_id": "ambition_path",
+    "source_classification": "alternate_history",
+    "source_act_id": null,
+    "source_scene_id": null
+  },
+  {
+    "scene_id": "solitary_ending",
+    "title": "Unspoken Future",
+    "location": "The road to Inverness",
+    "canonical_reference": "Alternate-history ending created for this game; it is not Shakespeare's canonical text.",
+    "participants": [
+      "macbeth"
+    ],
+    "summary": "Macbeth ends the chapter carrying a secret that no one else can challenge.",
+    "opening_narration": "I ride into the dark with the prophecy unshared. What becomes of it is mine to discover another day.",
+    "available_choices": [],
+    "is_ending": true,
+    "ending_id": "solitary_path",
+    "source_classification": "alternate_history",
+    "source_act_id": null,
+    "source_scene_id": null
+  },
+  {
+    "scene_id": "act2_dagger_vision",
+    "title": "A Dagger in the Air",
+    "location": "Inverness Castle",
+    "canonical_reference": "Macbeth, Act 2, Scene 1 (original game prose; events adapted, not Shakespeare dialogue).",
+    "source_classification": "canonical_adaptation",
+    "source_act_id": "act_2",
+    "source_scene_id": "scene_1",
+    "participants": [
+      "macbeth",
+      "lady_macbeth",
+      "duncan"
+    ],
+    "summary": "Macbeth waits for the signal while the image of a dagger sharpens his conflict between ambition and conscience.",
+    "opening_narration": "I wait beneath the roof that welcomes Duncan. A blade seems to hang before me, though no hand holds it.",
+    "available_choices": [
+      {
+        "choice_id": "proceed_with_murder",
+        "action_id": "choose_regicide",
+        "description": "Follow Lady Macbeth's plan and go to Duncan's chamber.",
+        "actor_id": "macbeth",
+        "next_scene_id": "act2_bloody_hands",
+        "state_flags": {
+          "duncan_murdered": true
+        },
+        "character_changes": {
+          "macbeth": {
+            "morality": 15,
+            "ambition": 15,
+            "suspicion": 20
+          },
+          "lady_macbeth": {
+            "ambition": 10
+          },
+          "duncan": {
+            "alive": false
+          }
+        },
+        "knowledge_grants": {
+          "macbeth": [
+            "duncan_murdered"
+          ],
+          "lady_macbeth": [
+            "duncan_murdered"
+          ]
+        },
+        "relationship_changes": [
+          {
+            "character_id": "lady_macbeth",
+            "source_character_id": "macbeth",
+            "trust": -5
+          }
+        ],
+        "conditions": {
+          "required_flags": {
+            "duncan_visit_expected": true
+          }
+        }
+      },
+      {
+        "choice_id": "refuse_regicide",
+        "action_id": "refuse_regicide",
+        "description": "Refuse the murder and wake Duncan before the plan can proceed.",
+        "actor_id": "macbeth",
+        "next_scene_id": "duncan_spared_ending",
+        "state_flags": {
+          "duncan_murdered": false
+        },
+        "character_changes": {
+          "macbeth": {
+            "morality": 15,
+            "ambition": 45
+          },
+          "lady_macbeth": {
+            "suspicion": 10
+          }
+        },
+        "knowledge_grants": {
+          "macbeth": [
+            "refused_regicide"
+          ],
+          "lady_macbeth": [
+            "refused_regicide"
+          ]
+        },
+        "relationship_changes": [
+          {
+            "character_id": "lady_macbeth",
+            "source_character_id": "macbeth",
+            "trust": -10
+          }
+        ],
+        "conditions": {
+          "required_flags": {
+            "duncan_visit_expected": true
+          }
+        }
+      }
+    ],
+    "is_ending": false,
+    "ending_id": null
+  },
+  {
+    "scene_id": "act2_bloody_hands",
+    "title": "Blood on the Hands",
+    "location": "Duncan's chamber and the adjoining passage",
+    "canonical_reference": "Macbeth, Act 2, Scene 2 (original game prose; events adapted, not Shakespeare dialogue).",
+    "source_classification": "canonical_adaptation",
+    "source_act_id": "act_2",
+    "source_scene_id": "scene_2",
+    "participants": [
+      "macbeth",
+      "lady_macbeth",
+      "duncan"
+    ],
+    "summary": "Duncan is dead. Macbeth returns shaken, while Lady Macbeth tries to control the evidence and the household.",
+    "opening_narration": "The deed is done. I hear every sound as an accusation, and the blood on my hands seems impossible to wash away.",
+    "available_choices": [
+      {
+        "choice_id": "frame_chamberlains",
+        "action_id": "frame_chamberlains",
+        "description": "Let Lady Macbeth return the daggers and blame the sleeping guards.",
+        "actor_id": "macbeth",
+        "next_scene_id": "act2_discovery",
+        "state_flags": {
+          "guards_framed": true
+        },
+        "character_changes": {
+          "macbeth": {
+            "suspicion": 10,
+            "morality": 45
+          }
+        },
+        "knowledge_grants": {
+          "macduff": [
+            "guards_were_framed"
+          ],
+          "malcolm": [
+            "duncan_murdered"
+          ]
+        },
+        "relationship_changes": [
+          {
+            "character_id": "macduff",
+            "source_character_id": "macbeth",
+            "hostility": 10
+          }
+        ],
+        "conditions": {
+          "required_flags": {
+            "duncan_murdered": true
+          }
+        }
+      },
+      {
+        "choice_id": "keep_daggers",
+        "action_id": "keep_daggers",
+        "description": "Carry the daggers yourself and refuse to let her return to the chamber.",
+        "actor_id": "macbeth",
+        "next_scene_id": "act2_discovery",
+        "state_flags": {
+          "daggers_retained": true
+        },
+        "character_changes": {
+          "macbeth": {
+            "suspicion": 15,
+            "morality": 45
+          }
+        },
+        "knowledge_grants": {
+          "macduff": [
+            "macbeth_carried_daggers"
+          ]
+        },
+        "conditions": {
+          "required_flags": {
+            "duncan_murdered": true
+          }
+        }
+      },
+      {
+        "choice_id": "confess_after_murder",
+        "action_id": "confess_after_murder",
+        "description": "Confess your part in Duncan's murder before suspicion can be turned against others.",
+        "actor_id": "macbeth",
+        "next_scene_id": "macbeth_confession_ending",
+        "state_flags": {
+          "macbeth_confessed": true
+        },
+        "character_changes": {
+          "macbeth": {
+            "morality": 20,
+            "suspicion": 10
+          }
+        },
+        "knowledge_grants": {
+          "macduff": [
+            "macbeth_confessed_to_duncans_murder"
+          ],
+          "malcolm": [
+            "macbeth_confessed_to_duncans_murder"
+          ]
+        },
+        "conditions": {
+          "required_flags": {
+            "duncan_murdered": true
+          }
+        }
+      }
+    ],
+    "is_ending": false,
+    "ending_id": null
+  },
+  {
+    "scene_id": "act2_discovery",
+    "title": "The King Is Dead",
+    "location": "Inverness Castle, at dawn",
+    "canonical_reference": "Macbeth, Act 2, Scene 3 (original game prose; events adapted, not Shakespeare dialogue).",
+    "source_classification": "canonical_adaptation",
+    "source_act_id": "act_2",
+    "source_scene_id": "scene_3",
+    "participants": [
+      "macbeth",
+      "lady_macbeth",
+      "duncan",
+      "banquo",
+      "macduff",
+      "malcolm"
+    ],
+    "summary": "Macduff discovers Duncan's murder. The court searches for an explanation as Malcolm and Donalbain weigh their safety.",
+    "opening_narration": "A cry tears through the castle. Duncan is found dead, and every face turns toward the nearest explanation.",
+    "available_choices": [
+      {
+        "choice_id": "accuse_guards",
+        "action_id": "accuse_chamberlains",
+        "description": "Support the accusation against Duncan's guards before questions turn toward you.",
+        "actor_id": "macbeth",
+        "next_scene_id": "act2_succession",
+        "state_flags": {
+          "guards_accused": true
+        },
+        "character_changes": {
+          "macduff": {
+            "suspicion": 35,
+            "morality": 45
+          },
+          "macbeth": {
+            "suspicion": 10
+          }
+        },
+        "knowledge_grants": {
+          "macduff": [
+            "guards_were_framed",
+            "macbeth_benefits_from_duncans_death"
+          ],
+          "banquo": [
+            "macbeth_benefits_from_duncans_death"
+          ]
+        },
+        "conditions": {
+          "required_flags": {
+            "guards_framed": true
+          }
+        }
+      },
+      {
+        "choice_id": "protect_malcolm",
+        "action_id": "protect_malcolm",
+        "description": "Acknowledge that the guards may be innocent and help Malcolm and Donalbain leave safely.",
+        "actor_id": "macbeth",
+        "next_scene_id": "act2_succession",
+        "state_flags": {
+          "guards_accused": false,
+          "malcolm_protected": true
+        },
+        "character_changes": {
+          "macbeth": {
+            "morality": 10,
+            "suspicion": 5
+          }
+        },
+        "knowledge_grants": {
+          "malcolm": [
+            "macbeth_did_not_accuse_the_guards"
+          ],
+          "macduff": [
+            "macbeth_questioned_the_accusation"
+          ]
+        },
+        "relationship_changes": [
+          {
+            "character_id": "macduff",
+            "source_character_id": "macbeth",
+            "trust": 10
+          }
+        ],
+        "conditions": {
+          "required_flags": {
+            "daggers_retained": true
+          }
+        }
+      }
+    ],
+    "is_ending": false,
+    "ending_id": null
+  },
+  {
+    "scene_id": "act2_succession",
+    "title": "A Crown in the Balance",
+    "location": "Forres, before the nobles",
+    "canonical_reference": "Macbeth, Act 2, Scene 4 (original game prose; events adapted, not Shakespeare dialogue).",
+    "source_classification": "canonical_adaptation",
+    "source_act_id": "act_2",
+    "source_scene_id": "scene_4",
+    "participants": [
+      "macbeth",
+      "lady_macbeth",
+      "banquo",
+      "macduff",
+      "duncan",
+      "malcolm"
+    ],
+    "summary": "Malcolm and Donalbain depart under suspicion and threat. The nobles consider who can hold Scotland together.",
+    "opening_narration": "The princes leave the court. Their flight is read as guilt by some and prudence by others; the crown waits.",
+    "available_choices": [
+      {
+        "choice_id": "claim_crown",
+        "action_id": "claim_crown",
+        "description": "Accept the crown and promise order, despite the unanswered questions.",
+        "actor_id": "macbeth",
+        "next_scene_id": "act2_coronation",
+        "state_flags": {
+          "macbeth_crowned": true
+        },
+        "character_changes": {
+          "macbeth": {
+            "ambition": 10,
+            "suspicion": 10
+          }
+        },
+        "knowledge_grants": {
+          "macbeth": [
+            "macbeth_crowned"
+          ],
+          "banquo": [
+            "macbeth_crowned"
+          ],
+          "macduff": [
+            "macbeth_crowned"
+          ]
+        },
+        "conditions": {
+          "required_flags": {
+            "guards_accused": true
+          }
+        }
+      },
+      {
+        "choice_id": "yield_to_malcolm",
+        "action_id": "yield_to_malcolm",
+        "description": "Invite Malcolm to return under protection and relinquish your claim.",
+        "actor_id": "macbeth",
+        "next_scene_id": "scotland_settlement_ending",
+        "character_changes": {
+          "macbeth": {
+            "morality": 15,
+            "ambition": 35
+          },
+          "malcolm": {
+            "morality": 10
+          }
+        },
+        "knowledge_grants": {
+          "malcolm": [
+            "macbeth_yielded_the_crown"
+          ]
+        },
+        "relationship_changes": [
+          {
+            "character_id": "macduff",
+            "source_character_id": "macbeth",
+            "trust": 20
+          }
+        ],
+        "conditions": {
+          "required_flags": {
+            "malcolm_protected": true
+          }
+        }
+      }
+    ],
+    "is_ending": false,
+    "ending_id": null
+  },
+  {
+    "scene_id": "act2_coronation",
+    "title": "The Uneasy Crown",
+    "location": "Scone, at the coronation",
+    "canonical_reference": "Macbeth, Act 2, Scene 4 (original game prose; events adapted, not Shakespeare dialogue).",
+    "source_classification": "canonical_adaptation",
+    "source_act_id": "act_2",
+    "source_scene_id": "scene_4",
+    "participants": [
+      "macbeth",
+      "lady_macbeth",
+      "banquo",
+      "macduff",
+      "malcolm"
+    ],
+    "summary": "Macbeth is crowned, but Banquo's knowledge and the unstable succession trouble his new rule.",
+    "opening_narration": "The crown settles on my head. Its weight is less than the thought of who may inherit it.",
+    "available_choices": [
+      {
+        "choice_id": "honor_banquo",
+        "action_id": "honor_banquo",
+        "description": "Keep Banquo close and answer his doubts with candor.",
+        "actor_id": "macbeth",
+        "next_scene_id": "act3_banquo_prophecy",
+        "state_flags": {
+          "banquo_trusted": true
+        },
+        "character_changes": {
+          "macbeth": {
+            "suspicion": 45
+          }
+        },
+        "knowledge_grants": {
+          "banquo": [
+            "macbeth_shared_the_crown_fear"
+          ]
+        },
+        "relationship_changes": [
+          {
+            "character_id": "banquo",
+            "source_character_id": "macbeth",
+            "trust": 15
+          }
+        ],
+        "conditions": {
+          "required_flags": {
+            "macbeth_crowned": true
+          }
+        }
+      },
+      {
+        "choice_id": "isolate_banquo",
+        "action_id": "isolate_banquo",
+        "description": "Keep Banquo at a distance and learn what he knows before the feast.",
+        "actor_id": "macbeth",
+        "next_scene_id": "act3_banquo_prophecy",
+        "state_flags": {
+          "banquo_watched": true
+        },
+        "character_changes": {
+          "macbeth": {
+            "suspicion": 45
+          }
+        },
+        "knowledge_grants": {
+          "macbeth": [
+            "banquo_is_watched"
+          ]
+        },
+        "conditions": {
+          "required_flags": {
+            "macbeth_crowned": true
+          }
+        }
+      }
+    ],
+    "is_ending": false,
+    "ending_id": null
+  },
+  {
+    "scene_id": "act3_banquo_prophecy",
+    "title": "The Heirs of Banquo",
+    "location": "The royal apartments",
+    "canonical_reference": "Macbeth, Act 3, Scene 1 (original game prose; events adapted, not Shakespeare dialogue).",
+    "source_classification": "canonical_adaptation",
+    "source_act_id": "act_3",
+    "source_scene_id": "scene_1",
+    "participants": [
+      "macbeth",
+      "banquo",
+      "lady_macbeth",
+      "fleance"
+    ],
+    "summary": "Macbeth learns that the Weird Sisters promised a royal future to Banquo's descendants and fears his crown may be temporary.",
+    "opening_narration": "I have the crown, yet the prophecy gives its long future to Banquo's line. Fear begins to speak as policy.",
+    "available_choices": [
+      {
+        "choice_id": "order_banquo_murder",
+        "action_id": "order_banquo_murder",
+        "description": "Hire assassins to kill Banquo and Fleance before the feast.",
+        "actor_id": "macbeth",
+        "next_scene_id": "act3_ambush",
+        "state_flags": {
+          "banquo_targeted": true
+        },
+        "character_changes": {
+          "macbeth": {
+            "morality": 35,
+            "suspicion": 15
+          }
+        },
+        "knowledge_grants": {
+          "macbeth": [
+            "banquo_targeted_for_murder"
+          ]
+        },
+        "conditions": {
+          "required_flags": {
+            "banquo_watched": true
+          },
+          "minimum_attributes": {
+            "suspicion": 30
+          }
+        }
+      },
+      {
+        "choice_id": "spare_banquo",
+        "action_id": "spare_banquo",
+        "description": "Refuse to murder your friend and confront the prophecy openly.",
+        "actor_id": "macbeth",
+        "next_scene_id": "act3_banquet",
+        "state_flags": {
+          "banquo_alive": true,
+          "banquo_killed": false,
+          "fleance_alive": true
+        },
+        "character_changes": {
+          "macbeth": {
+            "morality": 10,
+            "suspicion": 45
+          },
+          "banquo": {
+            "alive": true
+          },
+          "fleance": {
+            "alive": true
+          }
+        },
+        "knowledge_grants": {
+          "banquo": [
+            "macbeth_refused_to_target_banquo"
+          ]
+        },
+        "relationship_changes": [
+          {
+            "character_id": "banquo",
+            "source_character_id": "macbeth",
+            "trust": 20
+          }
+        ],
+        "conditions": {
+          "required_flags": {
+            "banquo_trusted": true
+          }
+        }
+      }
+    ],
+    "is_ending": false,
+    "ending_id": null
+  },
+  {
+    "scene_id": "act3_ambush",
+    "title": "The Road to the Feast",
+    "location": "A wooded road near the palace",
+    "canonical_reference": "Macbeth, Act 3, Scene 3 (original game prose; events adapted, not Shakespeare dialogue).",
+    "source_classification": "canonical_adaptation",
+    "source_act_id": "act_3",
+    "source_scene_id": "scene_3",
+    "participants": [
+      "macbeth",
+      "banquo",
+      "fleance"
+    ],
+    "summary": "The hired men attack Banquo's party. Fleance's fate determines whether Banquo's prophecy remains a living threat.",
+    "opening_narration": "The hired men wait in the dark. Before the feast, I will know whether fear has bought me peace.",
+    "available_choices": [
+      {
+        "choice_id": "banquo_falls_fleance_escapes",
+        "action_id": "kill_banquo_fleance_escapes",
+        "description": "Banquo is killed, but Fleance escapes into the night.",
+        "actor_id": "macbeth",
+        "next_scene_id": "act3_banquet",
+        "state_flags": {
+          "banquo_alive": false,
+          "fleance_alive": true,
+          "banquo_killed": true
+        },
+        "character_changes": {
+          "banquo": {
+            "alive": false
+          },
+          "macbeth": {
+            "suspicion": 10
+          },
+          "fleance": {
+            "alive": true
+          }
+        },
+        "knowledge_grants": {
+          "macbeth": [
+            "banquo_killed",
+            "fleance_escaped"
+          ]
+        },
+        "conditions": {
+          "required_flags": {
+            "banquo_targeted": true
+          }
+        }
+      },
+      {
+        "choice_id": "banquo_flees",
+        "action_id": "banquo_flees",
+        "description": "The attack fails; Banquo escapes with Fleance and may expose the plot.",
+        "actor_id": "macbeth",
+        "next_scene_id": "act3_banquet",
+        "state_flags": {
+          "banquo_alive": true,
+          "fleance_alive": true,
+          "banquo_killed": false
+        },
+        "character_changes": {
+          "macbeth": {
+            "suspicion": 20
+          },
+          "banquo": {
+            "alive": true
+          },
+          "fleance": {
+            "alive": true
+          }
+        },
+        "knowledge_grants": {
+          "banquo": [
+            "macbeth_ordered_an_attack"
+          ]
+        },
+        "conditions": {
+          "required_flags": {
+            "banquo_targeted": true
+          }
+        }
+      },
+      {
+        "choice_id": "banquo_falls_fleance_captured",
+        "action_id": "kill_banquo_fleance_captured",
+        "description": "Banquo is killed and Fleance is captured alive.",
+        "actor_id": "macbeth",
+        "next_scene_id": "act3_banquet",
+        "state_flags": {
+          "banquo_alive": false,
+          "fleance_alive": true,
+          "fleance_captured": true,
+          "banquo_killed": true
+        },
+        "character_changes": {
+          "banquo": {
+            "alive": false
+          },
+          "macbeth": {
+            "morality": 40
+          },
+          "fleance": {
+            "alive": true
+          }
+        },
+        "knowledge_grants": {
+          "macbeth": [
+            "banquo_killed",
+            "fleance_captured"
+          ]
+        },
+        "conditions": {
+          "required_flags": {
+            "banquo_targeted": true
+          }
+        }
+      }
+    ],
+    "is_ending": false,
+    "ending_id": null
+  },
+  {
+    "scene_id": "act3_banquet",
+    "title": "The King's Feast",
+    "location": "The great hall at Forres",
+    "canonical_reference": "Macbeth, Act 3, Scene 4 (original game prose; events adapted, not Shakespeare dialogue).",
+    "source_classification": "canonical_adaptation",
+    "source_act_id": "act_3",
+    "source_scene_id": "scene_4",
+    "participants": [
+      "macbeth",
+      "lady_macbeth",
+      "banquo",
+      "macduff",
+      "fleance"
+    ],
+    "summary": "At the feast, Macbeth's response depends on whether Banquo survived the attack; the nobles watch the king closely.",
+    "opening_narration": "The feast begins under candlelight. I search each face for the one answer I cannot command.",
+    "available_choices": [
+      {
+        "choice_id": "banquet_ghost",
+        "action_id": "confront_banquos_ghost",
+        "description": "Banquo was killed. A vision of him appears; acknowledge what the court has seen.",
+        "actor_id": "macbeth",
+        "next_scene_id": "act3_ghost",
+        "state_flags": {
+          "banquo_ghost_seen": true
+        },
+        "conditions": {
+          "required_flags": {
+            "banquo_killed": true
+          }
+        }
+      },
+      {
+        "choice_id": "banquet_cover",
+        "action_id": "cover_the_feast",
+        "description": "Banquo was killed. Conceal your terror and let Lady Macbeth dismiss the disturbance.",
+        "actor_id": "macbeth",
+        "next_scene_id": "act3_ghost",
+        "state_flags": {
+          "banquo_ghost_seen": true
+        },
+        "character_changes": {
+          "macbeth": {
+            "suspicion": 10
+          },
+          "lady_macbeth": {
+            "suspicion": 10
+          }
+        },
+        "conditions": {
+          "required_flags": {
+            "banquo_killed": true
+          }
+        }
+      },
+      {
+        "choice_id": "banquet_with_banquo",
+        "action_id": "banquet_with_banquo",
+        "description": "Banquo survived. Offer him a public place at court and hear his warning.",
+        "actor_id": "macbeth",
+        "next_scene_id": "act3_opposition",
+        "state_flags": {
+          "banquo_ghost_seen": false
+        },
+        "knowledge_grants": {
+          "macduff": [
+            "banquo_openly_challenged_macbeth"
+          ]
+        },
+        "relationship_changes": [
+          {
+            "character_id": "banquo",
+            "source_character_id": "macbeth",
+            "trust": 15
+          }
+        ],
+        "conditions": {
+          "required_flags": {
+            "banquo_alive": true
+          }
+        }
+      }
+    ],
+    "is_ending": false,
+    "ending_id": null
+  },
+  {
+    "scene_id": "act3_ghost",
+    "title": "The Empty Chair",
+    "location": "The great hall, after the guests withdraw",
+    "canonical_reference": "Macbeth, Act 3, Scene 4 (original game prose; events adapted, not Shakespeare dialogue).",
+    "source_classification": "canonical_adaptation",
+    "source_act_id": "act_3",
+    "source_scene_id": "scene_4",
+    "participants": [
+      "macbeth",
+      "lady_macbeth",
+      "banquo",
+      "macduff"
+    ],
+    "summary": "The ghost has shaken Macbeth's authority. Lady Macbeth attempts to contain the damage while the nobles reconsider their allegiance.",
+    "opening_narration": "The chair is empty now, but the fear remains visible in every guest who has left.",
+    "available_choices": [
+      {
+        "choice_id": "confess_banquos_ghost",
+        "action_id": "confess_fear",
+        "description": "Tell Lady Macbeth that guilt and fear have begun to rule you.",
+        "actor_id": "macbeth",
+        "next_scene_id": "act3_opposition",
+        "character_changes": {
+          "macbeth": {
+            "morality": 10,
+            "suspicion": 45
+          },
+          "lady_macbeth": {
+            "suspicion": 45
+          }
+        },
+        "knowledge_grants": {
+          "lady_macbeth": [
+            "macbeth_fears_banquos_ghost"
+          ]
+        },
+        "relationship_changes": [
+          {
+            "character_id": "lady_macbeth",
+            "source_character_id": "macbeth",
+            "trust": 15
+          }
+        ],
+        "conditions": {
+          "required_flags": {
+            "banquo_ghost_seen": true
+          }
+        }
+      },
+      {
+        "choice_id": "silence_lady",
+        "action_id": "silence_lady_macbeth",
+        "description": "Reject Lady Macbeth's counsel and tighten control of the court.",
+        "actor_id": "macbeth",
+        "next_scene_id": "act3_opposition",
+        "character_changes": {
+          "macbeth": {
+            "morality": 40,
+            "suspicion": 10
+          },
+          "lady_macbeth": {
+            "morality": 45
+          }
+        },
+        "relationship_changes": [
+          {
+            "character_id": "lady_macbeth",
+            "source_character_id": "macbeth",
+            "trust": -20,
+            "hostility": 10
+          }
+        ],
+        "conditions": {
+          "required_flags": {
+            "banquo_ghost_seen": true
+          }
+        }
+      }
+    ],
+    "is_ending": false,
+    "ending_id": null
+  },
+  {
+    "scene_id": "act3_opposition",
+    "title": "A Kingdom of Watchers",
+    "location": "The royal council chamber",
+    "canonical_reference": "Macbeth, Act 3, Scene 6 (original game prose; events adapted, not Shakespeare dialogue).",
+    "source_classification": "canonical_adaptation",
+    "source_act_id": "act_3",
+    "source_scene_id": null,
+    "participants": [
+      "macbeth",
+      "lady_macbeth",
+      "banquo",
+      "macduff"
+    ],
+    "summary": "Nobles notice Macbeth's instability. Banquo's survival or death and the treatment of Macduff shape the opposition.",
+    "opening_narration": "The lords measure every word. I can answer their fear with listening or make fear the only law.",
+    "available_choices": [
+      {
+        "choice_id": "summon_sisters",
+        "action_id": "seek_new_prophecy",
+        "description": "Seek the Weird Sisters again, while allowing Macduff to travel to England.",
+        "actor_id": "macbeth",
+        "next_scene_id": "act4_apparitions",
+        "state_flags": {
+          "macduff_in_england": true
+        },
+        "knowledge_grants": {
+          "macbeth": [
+            "macbeth_sought_new_prophecy"
+          ]
+        }
+      },
+      {
+        "choice_id": "grant_macduff_leave",
+        "action_id": "grant_macduff_leave",
+        "description": "Allow Macduff to travel to England rather than seize him.",
+        "actor_id": "macbeth",
+        "next_scene_id": "act4_apparitions",
+        "state_flags": {
+          "macduff_in_england": true
+        },
+        "knowledge_grants": {
+          "macduff": [
+            "macbeth_allowed_departure"
+          ],
+          "malcolm": [
+            "macduff_is_coming"
+          ]
+        },
+        "relationship_changes": [
+          {
+            "character_id": "macduff",
+            "source_character_id": "macbeth",
+            "trust": 10
+          }
+        ]
+      },
+      {
+        "choice_id": "detain_macduff",
+        "action_id": "detain_macduff",
+        "description": "Detain Macduff and force his household to answer for his disloyalty.",
+        "actor_id": "macbeth",
+        "next_scene_id": "act4_apparitions",
+        "state_flags": {
+          "macduff_detained": true
+        },
+        "character_changes": {
+          "macduff": {
+            "alive": true,
+            "suspicion": 20
+          }
+        },
+        "knowledge_grants": {
+          "macduff": [
+            "macbeth_detained_me"
+          ]
+        }
+      }
+    ],
+    "is_ending": false,
+    "ending_id": null
+  },
+  {
+    "scene_id": "act4_apparitions",
+    "title": "The Cave of Warnings",
+    "location": "A cavern beyond the heath",
+    "canonical_reference": "Macbeth, Act 4, Scene 1 (original game prose; events adapted, not Shakespeare dialogue).",
+    "source_classification": "canonical_adaptation",
+    "source_act_id": "act_4",
+    "source_scene_id": "scene_1",
+    "participants": [
+      "macbeth",
+      "weird_sisters"
+    ],
+    "summary": "The Weird Sisters show Macbeth visions and warnings. The words are real, but Macbeth must decide how much certainty they grant.",
+    "opening_narration": "The air turns cold. The apparitions speak in riddles that promise safety while naming danger.",
+    "available_choices": [
+      {
+        "choice_id": "trust_apparitions",
+        "action_id": "trust_apparitions",
+        "description": "Trust the warnings as guarantees and act before Macduff can challenge you.",
+        "actor_id": "macbeth",
+        "next_scene_id": "act4_macduff_household",
+        "state_flags": {
+          "trusted_prophecies": true
+        },
+        "character_changes": {
+          "macbeth": {
+            "ambition": 10,
+            "suspicion": 15
+          }
+        },
+        "knowledge_grants": {
+          "macbeth": [
+            "apparitions_promised_false_security"
+          ]
+        }
+      },
+      {
+        "choice_id": "question_apparitions",
+        "action_id": "question_apparitions",
+        "description": "Treat the visions as riddles, not permission to harm an innocent household.",
+        "actor_id": "macbeth",
+        "next_scene_id": "act4_macduff_household",
+        "state_flags": {
+          "questioned_prophecies": true
+        },
+        "character_changes": {
+          "macbeth": {
+            "morality": 10,
+            "suspicion": 45
+          }
+        },
+        "knowledge_grants": {
+          "macbeth": [
+            "apparitions_are_ambiguous"
+          ]
+        }
+      }
+    ],
+    "is_ending": false,
+    "ending_id": null
+  },
+  {
+    "scene_id": "act4_macduff_household",
+    "title": "A House Without Its Lord",
+    "location": "Fife, at Macduff's castle",
+    "canonical_reference": "Macbeth, Act 4, Scene 2 (original game prose; events adapted, not Shakespeare dialogue).",
+    "source_classification": "canonical_adaptation",
+    "source_act_id": "act_4",
+    "source_scene_id": "scene_2",
+    "participants": [
+      "macbeth",
+      "macduff",
+      "lady_macduff",
+      "macduff_child"
+    ],
+    "summary": "Macbeth's order reaches Macduff's home. The household faces danger while Macduff is away or held elsewhere.",
+    "opening_narration": "The order is in my hand. A family stands between my fear and the justice I claim to defend.",
+    "available_choices": [
+      {
+        "choice_id": "attack_macduff_household",
+        "action_id": "attack_macduff_family",
+        "description": "Carry out the order against Macduff's household.",
+        "actor_id": "macbeth",
+        "next_scene_id": "act4_england",
+        "state_flags": {
+          "macduff_family_safe": false
+        },
+        "character_changes": {
+          "macbeth": {
+            "morality": 30,
+            "suspicion": 15
+          },
+          "macduff": {
+            "morality": 10,
+            "suspicion": 25
+          },
+          "lady_macduff": {
+            "alive": false
+          },
+          "macduff_child": {
+            "alive": false
+          }
+        },
+        "knowledge_grants": {
+          "macduff": [
+            "macbeth_attacked_my_family"
+          ],
+          "malcolm": [
+            "macbeth_attacked_macduffs_family"
+          ]
+        },
+        "conditions": {
+          "required_flags": {
+            "trusted_prophecies": true
+          }
+        }
+      },
+      {
+        "choice_id": "spare_macduff_household",
+        "action_id": "spare_macduff_family",
+        "description": "Withdraw the order and leave Macduff's family unharmed.",
+        "actor_id": "macbeth",
+        "next_scene_id": "act4_england",
+        "state_flags": {
+          "macduff_family_safe": true
+        },
+        "character_changes": {
+          "macbeth": {
+            "morality": 15,
+            "suspicion": 45
+          },
+          "lady_macduff": {
+            "alive": true
+          },
+          "macduff_child": {
+            "alive": true
+          }
+        },
+        "knowledge_grants": {
+          "macduff": [
+            "macbeth_spared_my_family"
+          ]
+        },
+        "relationship_changes": [
+          {
+            "character_id": "macduff",
+            "source_character_id": "macbeth",
+            "trust": 25
+          }
+        ],
+        "conditions": {
+          "required_flags": {
+            "questioned_prophecies": true
+          }
+        }
+      }
+    ],
+    "is_ending": false,
+    "ending_id": null
+  },
+  {
+    "scene_id": "act4_england",
+    "title": "A Dispatch from England",
+    "location": "Macbeth's council chamber at Dunsinane",
+    "canonical_reference": "Macbeth, Act 4, Scene 3 (original game prose; events adapted, not Shakespeare dialogue).",
+    "source_classification": "canonical_adaptation",
+    "source_act_id": "act_4",
+    "source_scene_id": "scene_3",
+    "participants": [
+      "macduff",
+      "malcolm",
+      "macbeth",
+      "fleance"
+    ],
+    "summary": "Reports from England describe Malcolm testing Macduff's loyalty. Macbeth must decide whether to answer their growing cooperation with negotiation or force.",
+    "opening_narration": "A dispatch from England names Malcolm and Macduff together. I have not seen their meeting, but I know what their alliance could mean for Scotland.",
+    "available_choices": [
+      {
+        "choice_id": "accept_malcolm_alliance",
+        "action_id": "accept_malcolm_alliance",
+        "description": "Accept Malcolm and Macduff's terms for cooperation and a just restoration of Scotland.",
+        "actor_id": "macbeth",
+        "next_scene_id": "act4_rebellion",
+        "state_flags": {
+          "malcolm_macduff_alliance": true
+        },
+        "character_changes": {
+          "macduff": {
+            "morality": 15
+          },
+          "malcolm": {
+            "morality": 10
+          }
+        },
+        "knowledge_grants": {
+          "macbeth": [
+            "malcolm_and_macduff_are_allied"
+          ],
+          "macduff": [
+            "macbeth_accepted_terms"
+          ],
+          "malcolm": [
+            "macbeth_accepted_terms"
+          ]
+        },
+        "relationship_changes": [
+          {
+            "character_id": "macduff",
+            "source_character_id": "macbeth",
+            "trust": 15
+          }
+        ],
+        "conditions": {
+          "required_flags": {
+            "macduff_in_england": true
+          }
+        }
+      },
+      {
+        "choice_id": "reject_malcolm_alliance",
+        "action_id": "reject_malcolm_alliance",
+        "description": "Reject their terms and prepare to hold power against the resistance.",
+        "actor_id": "macbeth",
+        "next_scene_id": "act4_rebellion",
+        "state_flags": {
+          "malcolm_macduff_alliance": false
+        },
+        "character_changes": {
+          "macbeth": {
+            "suspicion": 10,
+            "morality": 45
+          }
+        },
+        "knowledge_grants": {
+          "macbeth": [
+            "macbeth_rejected_malcolms_terms"
+          ],
+          "macduff": [
+            "macbeth_rejected_the_terms"
+          ],
+          "malcolm": [
+            "macbeth_rejected_the_terms"
+          ]
+        },
+        "relationship_changes": [
+          {
+            "character_id": "macduff",
+            "source_character_id": "macbeth",
+            "trust": -10,
+            "hostility": 10
+          }
+        ],
+        "conditions": {
+          "required_flags": {
+            "macduff_in_england": true
+          }
+        }
+      },
+      {
+        "choice_id": "suppress_malcolm",
+        "action_id": "suppress_malcolm",
+        "description": "Keep Macduff detained and reject Malcolm's appeal before it can gather support.",
+        "actor_id": "macbeth",
+        "next_scene_id": "act4_rebellion",
+        "state_flags": {
+          "malcolm_macduff_alliance": false
+        },
+        "character_changes": {
+          "macbeth": {
+            "suspicion": 80,
+            "morality": 20
+          }
+        },
+        "knowledge_grants": {
+          "macbeth": [
+            "macbeth_suppressed_malcolms_appeal"
+          ]
+        },
+        "conditions": {
+          "required_flags": {
+            "macduff_detained": true
+          }
+        }
+      },
+      {
+        "choice_id": "trade_fleance_for_crown",
+        "action_id": "release_fleance_for_settlement",
+        "description": "Release the captured Fleance as part of an agreement to relinquish the crown.",
+        "actor_id": "macbeth",
+        "next_scene_id": "scotland_settlement_ending",
+        "state_flags": {
+          "fleance_captured": false
+        },
+        "character_changes": {
+          "macbeth": {
+            "ambition": 25,
+            "morality": 75
+          },
+          "fleance": {
+            "alive": true
+          }
+        },
+        "knowledge_grants": {
+          "banquo": [
+            "fleance_was_released"
+          ],
+          "malcolm": [
+            "fleance_was_released"
+          ],
+          "macduff": [
+            "fleance_was_released"
+          ]
+        },
+        "conditions": {
+          "required_flags": {
+            "fleance_captured": true
+          }
+        }
+      }
+    ],
+    "is_ending": false,
+    "ending_id": null
+  },
+  {
+    "scene_id": "act4_rebellion",
+    "title": "A Cause in Scotland",
+    "location": "The English camp and the Scottish border",
+    "canonical_reference": "Macbeth, Act 4, Scene 3 (original game prose; events adapted, not Shakespeare dialogue).",
+    "source_classification": "canonical_adaptation",
+    "source_act_id": "act_4",
+    "source_scene_id": "scene_3",
+    "participants": [
+      "macduff",
+      "malcolm",
+      "macbeth"
+    ],
+    "summary": "The resistance gathers support. Whether the Macduff family was harmed and whether the alliance holds shape the cause.",
+    "opening_narration": "A cause can free Scotland, or replace one fear with another. The soldiers wait for the purpose of their march.",
+    "available_choices": [
+      {
+        "choice_id": "raise_scottish_rebellion",
+        "action_id": "raise_rebellion",
+        "description": "Join the campaign and gather Scottish nobles behind Malcolm.",
+        "actor_id": "macbeth",
+        "next_scene_id": "act5_sleepwalking",
+        "state_flags": {
+          "rebellion_strength": true
+        },
+        "knowledge_grants": {
+          "macbeth": [
+            "scottish_rebellion_grows"
+          ]
+        },
+        "conditions": {
+          "required_flags": {
+            "malcolm_macduff_alliance": true
+          }
+        }
+      },
+      {
+        "choice_id": "seek_settlement",
+        "action_id": "seek_settlement",
+        "description": "Offer Macbeth a negotiated abdication before the army advances.",
+        "actor_id": "macbeth",
+        "next_scene_id": "scotland_settlement_ending",
+        "knowledge_grants": {
+          "macbeth": [
+            "malcolm_offered_settlement"
+          ]
+        },
+        "conditions": {
+          "required_flags": {
+            "malcolm_macduff_alliance": true,
+            "macduff_family_safe": true
+          }
+        }
+      },
+      {
+        "choice_id": "fracture_rebellion",
+        "action_id": "fracture_rebellion",
+        "description": "Refuse compromise and let distrust divide the resistance.",
+        "actor_id": "macbeth",
+        "next_scene_id": "act5_sleepwalking",
+        "state_flags": {
+          "rebellion_strength": false
+        },
+        "character_changes": {
+          "macduff": {
+            "suspicion": 15
+          },
+          "malcolm": {
+            "suspicion": 10
+          }
+        },
+        "conditions": {
+          "required_flags": {
+            "malcolm_macduff_alliance": false
+          }
+        }
+      }
+    ],
+    "is_ending": false,
+    "ending_id": null
+  },
+  {
+    "scene_id": "act5_sleepwalking",
+    "title": "The Candle at Night",
+    "location": "Dunsinane, Lady Macbeth's chamber",
+    "canonical_reference": "Macbeth, Act 5, Scene 1 (original game prose; events adapted, not Shakespeare dialogue).",
+    "source_classification": "canonical_adaptation",
+    "source_act_id": "act_5",
+    "source_scene_id": "scene_1",
+    "participants": [
+      "macbeth",
+      "lady_macbeth"
+    ],
+    "summary": "Lady Macbeth walks in her sleep, burdened by the bloodshed. Macbeth must decide whether to hear her or shut her away.",
+    "opening_narration": "A candle moves through the dark. Lady Macbeth speaks to stains no physician can see, and I cannot meet her eyes.",
+    "available_choices": [
+      {
+        "choice_id": "care_for_lady",
+        "action_id": "care_for_lady_macbeth",
+        "description": "Stay with Lady Macbeth and seek help without exposing her to the court.",
+        "actor_id": "macbeth",
+        "next_scene_id": "act5_birnam_wood",
+        "character_changes": {
+          "lady_macbeth": {
+            "morality": 10,
+            "suspicion": 40
+          },
+          "macbeth": {
+            "morality": 10
+          }
+        },
+        "knowledge_grants": {
+          "lady_macbeth": [
+            "macbeth_stayed_with_me"
+          ]
+        },
+        "relationship_changes": [
+          {
+            "character_id": "lady_macbeth",
+            "source_character_id": "macbeth",
+            "trust": 20
+          }
+        ]
+      },
+      {
+        "choice_id": "isolate_lady",
+        "action_id": "isolate_lady_macbeth",
+        "description": "Keep her apart and prepare for the advancing army alone.",
+        "actor_id": "macbeth",
+        "next_scene_id": "act5_birnam_wood",
+        "character_changes": {
+          "lady_macbeth": {
+            "morality": 40,
+            "suspicion": 15
+          },
+          "macbeth": {
+            "suspicion": 10
+          }
+        },
+        "knowledge_grants": {
+          "lady_macbeth": [
+            "macbeth_left_me_alone"
+          ]
+        },
+        "relationship_changes": [
+          {
+            "character_id": "lady_macbeth",
+            "source_character_id": "macbeth",
+            "trust": -20,
+            "hostility": 10
+          }
+        ]
+      }
+    ],
+    "is_ending": false,
+    "ending_id": null
+  },
+  {
+    "scene_id": "act5_birnam_wood",
+    "title": "The Wood That Moves",
+    "location": "The slopes below Dunsinane",
+    "canonical_reference": "Macbeth, Act 5, Scene 5 (original game prose; events adapted, not Shakespeare dialogue).",
+    "source_classification": "canonical_adaptation",
+    "source_act_id": "act_5",
+    "source_scene_id": "scene_5",
+    "participants": [
+      "macbeth",
+      "macduff",
+      "malcolm"
+    ],
+    "summary": "Malcolm's soldiers advance using branches as camouflage. Macbeth sees Birnam Wood moving and must choose defense or retreat.",
+    "opening_narration": "The hillside seems to move. The prophecy's safety becomes a question, not a shield.",
+    "available_choices": [
+      {
+        "choice_id": "hold_dunsinane",
+        "action_id": "hold_dunsinane",
+        "description": "Hold the castle and trust the prophecy despite the moving wood.",
+        "actor_id": "macbeth",
+        "next_scene_id": "act5_siege",
+        "state_flags": {
+          "held_dunsinane": true
+        },
+        "character_changes": {
+          "macbeth": {
+            "ambition": 10,
+            "suspicion": 15
+          }
+        }
+      },
+      {
+        "choice_id": "retreat_dunsinane",
+        "action_id": "retreat_from_dunsinane",
+        "description": "Withdraw to spare the city and preserve a chance to negotiate.",
+        "actor_id": "macbeth",
+        "next_scene_id": "act5_siege",
+        "state_flags": {
+          "retreated_from_dunsinane": true
+        },
+        "character_changes": {
+          "macbeth": {
+            "morality": 10,
+            "ambition": 40
+          },
+          "macduff": {
+            "suspicion": 45
+          }
+        }
+      }
+    ],
+    "is_ending": false,
+    "ending_id": null
+  },
+  {
+    "scene_id": "act5_siege",
+    "title": "The Last Terms",
+    "location": "Dunsinane under siege",
+    "canonical_reference": "Macbeth, Act 5, Scene 7 (original game prose; events adapted, not Shakespeare dialogue).",
+    "source_classification": "canonical_adaptation",
+    "source_act_id": "act_5",
+    "source_scene_id": null,
+    "participants": [
+      "macbeth",
+      "macduff",
+      "malcolm",
+      "lady_macbeth"
+    ],
+    "summary": "The siege closes around the castle. Macbeth can surrender, negotiate, or risk one final battle.",
+    "opening_narration": "The gates shake. I may still choose what Scotland inherits from this night.",
+    "available_choices": [
+      {
+        "choice_id": "surrender_to_malcolm",
+        "action_id": "surrender_to_malcolm",
+        "description": "Surrender the crown and ask Malcolm to spare the people of Dunsinane.",
+        "actor_id": "macbeth",
+        "next_scene_id": "macbeth_surrender_ending",
+        "character_changes": {
+          "macbeth": {
+            "morality": 15,
+            "ambition": 30
+          },
+          "malcolm": {
+            "morality": 15
+          }
+        },
+        "knowledge_grants": {
+          "malcolm": [
+            "macbeth_surrendered"
+          ]
+        },
+        "conditions": {
+          "required_flags": {
+            "retreated_from_dunsinane": true,
+            "macduff_family_safe": true
+          }
+        }
+      },
+      {
+        "choice_id": "negotiate_scotland",
+        "action_id": "negotiate_scotland",
+        "description": "Accept a settlement that ends the fighting and restores Scotland's council.",
+        "actor_id": "macbeth",
+        "next_scene_id": "scotland_settlement_ending",
+        "character_changes": {
+          "macbeth": {
+            "ambition": 35,
+            "morality": 10
+          },
+          "macduff": {
+            "morality": 10
+          }
+        },
+        "conditions": {
+          "required_flags": {
+            "retreated_from_dunsinane": true,
+            "macduff_family_safe": true
+          }
+        }
+      },
+      {
+        "choice_id": "fight_macduff",
+        "action_id": "fight_macduff",
+        "description": "Meet Macduff in combat rather than let another decide your fate.",
+        "actor_id": "macbeth",
+        "next_scene_id": "act5_final_confrontation",
+        "character_changes": {
+          "macbeth": {
+            "suspicion": 20
+          }
+        },
+        "conditions": {
+          "required_flags": {
+            "held_dunsinane": true
+          }
+        }
+      }
+    ],
+    "is_ending": false,
+    "ending_id": null
+  },
+  {
+    "scene_id": "act5_final_confrontation",
+    "title": "The Last Battle",
+    "location": "Outside Dunsinane",
+    "canonical_reference": "Macbeth, Act 5, Scene 8 (original game prose; events adapted, not Shakespeare dialogue).",
+    "source_classification": "canonical_adaptation",
+    "source_act_id": "act_5",
+    "source_scene_id": null,
+    "participants": [
+      "macbeth",
+      "macduff",
+      "malcolm"
+    ],
+    "summary": "Macbeth faces Macduff. The outcome depends on earlier violence, the rebellion, and Macbeth's final decision.",
+    "opening_narration": "Macduff stands before me. The last prophecy no longer sounds like certainty; it sounds like a choice.",
+    "available_choices": [
+      {
+        "choice_id": "fight_to_death",
+        "action_id": "fight_to_death",
+        "description": "Fight Macduff to the end, refusing surrender.",
+        "actor_id": "macbeth",
+        "next_scene_id": "tragic_tragedy_ending",
+        "state_flags": {
+          "malcolm_crowned": true,
+          "scotland_restored": true
+        },
+        "character_changes": {
+          "macbeth": {
+            "alive": false,
+            "morality": 40
+          },
+          "macduff": {
+            "suspicion": 40
+          },
+          "malcolm": {
+            "morality": 75
+          }
+        },
+        "knowledge_grants": {
+          "malcolm": [
+            "macduff_defeated_macbeth"
+          ]
+        }
+      },
+      {
+        "choice_id": "yield_to_macduff",
+        "action_id": "yield_to_macduff",
+        "description": "Lay down your weapon and let Macduff judge you before Scotland.",
+        "actor_id": "macbeth",
+        "next_scene_id": "macbeth_surrender_ending",
+        "character_changes": {
+          "macbeth": {
+            "morality": 15,
+            "ambition": 30
+          },
+          "macduff": {
+            "morality": 15
+          }
+        },
+        "knowledge_grants": {
+          "macduff": [
+            "macbeth_surrendered_to_macduff"
+          ]
+        },
+        "conditions": {
+          "required_flags": {
+            "macduff_family_safe": true
+          }
+        }
+      },
+      {
+        "choice_id": "escape_with_fleance",
+        "action_id": "escape_with_fleance",
+        "description": "Use the confusion to flee while Fleance's surviving line carries the prophecy onward.",
+        "actor_id": "macbeth",
+        "next_scene_id": "banquo_lineage_ending",
+        "character_changes": {
+          "macbeth": {
+            "suspicion": 20,
+            "ambition": 40
+          }
+        },
+        "conditions": {
+          "required_flags": {
+            "fleance_alive": true,
+            "fleance_captured": false
+          }
+        }
+      },
+      {
+        "choice_id": "hold_the_crown",
+        "action_id": "hold_the_crown",
+        "description": "Break the rebellion's resolve and keep the crown by force.",
+        "actor_id": "macbeth",
+        "next_scene_id": "tyrant_crown_ending",
+        "character_changes": {
+          "macbeth": {
+            "morality": 30,
+            "ambition": 15
+          }
+        },
+        "conditions": {
+          "required_flags": {
+            "rebellion_strength": false,
+            "held_dunsinane": true
+          }
+        }
+      }
+    ],
+    "is_ending": false,
+    "ending_id": null
+  },
+  {
+    "scene_id": "duncan_spared_ending",
+    "title": "The King Wakes",
+    "location": "Inverness Castle",
+    "canonical_reference": "Macbeth, Act 2, Scene 2 (original game prose; events adapted, not Shakespeare dialogue).",
+    "source_classification": "alternate_history",
+    "source_act_id": null,
+    "source_scene_id": null,
+    "participants": [
+      "macbeth",
+      "lady_macbeth",
+      "duncan"
+    ],
+    "summary": "Macbeth refuses regicide. The crown remains with Duncan, but the marriage and the prophecy are changed by the refusal.",
+    "opening_narration": "Duncan wakes to the alarm. I have chosen conscience, though I do not know what that choice will cost.",
+    "available_choices": [],
+    "is_ending": true,
+    "ending_id": "duncan_spared"
+  },
+  {
+    "scene_id": "macbeth_confession_ending",
+    "title": "A Confession Before the Crown",
+    "location": "Inverness Castle",
+    "canonical_reference": "Macbeth, Act 2, Scene 3 (original game prose; events adapted, not Shakespeare dialogue).",
+    "source_classification": "alternate_history",
+    "source_act_id": null,
+    "source_scene_id": null,
+    "participants": [
+      "macbeth",
+      "lady_macbeth",
+      "macduff",
+      "duncan"
+    ],
+    "summary": "Macbeth admits his role before the nobles can crown him; the truth costs him power but prevents a false accusation.",
+    "opening_narration": "I speak before the court can invent another story. My name is ruined, but the lie ends here.",
+    "available_choices": [],
+    "is_ending": true,
+    "ending_id": "macbeth_confessed"
+  },
+  {
+    "scene_id": "scotland_settlement_ending",
+    "title": "The Council Restored",
+    "location": "Scone, after negotiations",
+    "canonical_reference": "Macbeth, Act 5, Scene 9 (original game prose; events adapted, not Shakespeare dialogue).",
+    "source_classification": "alternate_history",
+    "source_act_id": null,
+    "source_scene_id": null,
+    "participants": [
+      "macbeth",
+      "macduff",
+      "malcolm",
+      "lady_macbeth"
+    ],
+    "summary": "Macbeth relinquishes sole rule under a negotiated settlement, avoiding a final battle and returning authority to a Scottish council.",
+    "opening_narration": "The crown leaves my hands by agreement. Scotland must now build a rule no single fear can command.",
+    "available_choices": [],
+    "is_ending": true,
+    "ending_id": "scotland_settlement"
+  },
+  {
+    "scene_id": "macbeth_surrender_ending",
+    "title": "Judgment at Scone",
+    "location": "Scone, under Malcolm's protection",
+    "canonical_reference": "Macbeth, Act 5, Scene 9 (original game prose; events adapted, not Shakespeare dialogue).",
+    "source_classification": "alternate_history",
+    "source_act_id": null,
+    "source_scene_id": null,
+    "participants": [
+      "macbeth",
+      "macduff",
+      "malcolm",
+      "lady_macbeth"
+    ],
+    "summary": "Macbeth survives and submits to judgment. Malcolm restores the throne while the court weighs mercy against justice.",
+    "opening_narration": "I live to answer for what I have done. The crown is gone; the reckoning is not.",
+    "available_choices": [],
+    "is_ending": true,
+    "ending_id": "macbeth_surrendered"
+  },
+  {
+    "scene_id": "tragic_tragedy_ending",
+    "title": "The Crown Broken",
+    "location": "Outside Dunsinane",
+    "canonical_reference": "Macbeth, Act 5, Scene 8 (original game prose; events adapted, not Shakespeare dialogue).",
+    "source_classification": "canonical_adaptation",
+    "source_act_id": "act_5",
+    "source_scene_id": null,
+    "participants": [
+      "macbeth",
+      "macduff",
+      "malcolm"
+    ],
+    "summary": "Macduff defeats Macbeth, Malcolm takes the crown, and the surviving nobles face the damage left by tyranny.",
+    "opening_narration": "The crown falls with me. Scotland will outlive my fear, though it cannot undo the blood already shed.",
+    "available_choices": [],
+    "is_ending": true,
+    "ending_id": "tragic_crown"
+  },
+  {
+    "scene_id": "banquo_lineage_ending",
+    "title": "The Crown Passes On",
+    "location": "The Scottish border",
+    "canonical_reference": "Macbeth, Act 5, Scene 8 (original game prose; events adapted, not Shakespeare dialogue).",
+    "source_classification": "alternate_history",
+    "source_act_id": null,
+    "source_scene_id": null,
+    "participants": [
+      "macbeth",
+      "banquo",
+      "macduff",
+      "malcolm"
+    ],
+    "summary": "Macbeth escapes the battle, but Fleance's survival leaves Banquo's prophecy alive and Macbeth without a kingdom.",
+    "opening_narration": "I leave the crown behind. Somewhere beyond the border, Banquo's line still has a future I could not command.",
+    "available_choices": [],
+    "is_ending": true,
+    "ending_id": "banquo_lineage"
+  },
+  {
+    "scene_id": "tyrant_crown_ending",
+    "title": "A Crown of Ash",
+    "location": "Dunsinane",
+    "canonical_reference": "Macbeth, Act 5, Scene 8 (original game prose; events adapted, not Shakespeare dialogue).",
+    "source_classification": "alternate_history",
+    "source_act_id": null,
+    "source_scene_id": null,
+    "participants": [
+      "macbeth",
+      "lady_macbeth",
+      "macduff",
+      "malcolm"
+    ],
+    "summary": "Macbeth retains power after crushing the rebellion, but Scotland is ruled through fear and the royal household is fractured.",
+    "opening_narration": "I keep the crown, and lose the country that gave it meaning. No prophecy can make this peace.",
+    "available_choices": [],
+    "is_ending": true,
+    "ending_id": "tyrant_crown"
+  }
+]

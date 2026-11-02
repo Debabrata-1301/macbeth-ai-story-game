@@ -1,0 +1,18 @@
+:root {
+  color-scheme: light;
+  --parchment: #e8d5ac;
+  --parchment-light: #f3e7cb;
+  --parchment-shadow: #d1b98b;
+  --ink: #2b2118;
+  --ink-soft: #594838;
+  --leather: #65412d;
+  --leather-deep: #3f291f;
+  --crimson: #8c2928;
+  --crimson-dark: #6d1f20;
+  --gold: #b18a45;
+  --gold-pale: #d3b773;
+  --line: rgba(101, 65, 45, 0.32);
+  --serif-display: 'Cinzel', 'Palatino Linotype', 'Book Antiqua', Georgia, serif;
+  --serif-body: 'EB Garamond', 'Cormorant Garamond', 'Palatino Linotype', Georgia, serif;
+  --focus-ring: #8c2928;
+}

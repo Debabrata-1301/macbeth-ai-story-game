@@ -1,0 +1,50 @@
+name: Backend CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  backend:
+    name: Python ${{ matrix.python-version }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.13", "3.14"]
+    env:
+      SQLITE_PATH: ${{ runner.temp }}/macbeth-ci.sqlite3
+      FAISS_INDEX_DIR: ${{ runner.temp }}/faiss
+      RAG_METADATA_PATH: ${{ runner.temp }}/faiss/metadata.json
+      RAG_CHUNKS_PATH: ${{ runner.temp }}/chunks.json
+      COVERAGE_FILE: ${{ runner.temp }}/.coverage
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v7
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v7
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+          cache-dependency-path: pyproject.toml
+
+      - name: Install package and backend test dependencies
+        run: python -m pip install -e ".[dev,rag]"
+
+      - name: Check Python style with Ruff
+        run: python -m ruff check src tests
+
+      - name: Run backend tests and generate coverage
+        run: >-
+          python -m pytest -p no:cacheprovider
+          --basetemp="$RUNNER_TEMP/pytest"
+          --cov-report="xml:$RUNNER_TEMP/coverage.xml"

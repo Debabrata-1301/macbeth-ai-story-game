@@ -1,0 +1,149 @@
+[
+  {
+    "character_id": "macbeth",
+    "name": "Macbeth",
+    "role": "Thane of Glamis",
+    "personality": [
+      "brave",
+      "ambitious",
+      "imaginative"
+    ],
+    "motivations": [
+      "honor",
+      "power",
+      "security"
+    ],
+    "background": "A celebrated Scottish thane returning from battle."
+  },
+  {
+    "character_id": "lady_macbeth",
+    "name": "Lady Macbeth",
+    "role": "Noblewoman of Inverness",
+    "personality": [
+      "resolute",
+      "perceptive",
+      "ambitious"
+    ],
+    "motivations": [
+      "influence",
+      "security",
+      "her husband's greatness"
+    ],
+    "background": "Macbeth's wife, awaiting news at Inverness."
+  },
+  {
+    "character_id": "banquo",
+    "name": "Banquo",
+    "role": "Scottish general",
+    "personality": [
+      "cautious",
+      "loyal",
+      "thoughtful"
+    ],
+    "motivations": [
+      "honor",
+      "family",
+      "truth"
+    ],
+    "background": "A fellow general who encounters the weird sisters with Macbeth."
+  },
+  {
+    "character_id": "macduff",
+    "name": "Macduff",
+    "role": "Thane of Fife",
+    "personality": [
+      "dutiful",
+      "watchful",
+      "steadfast"
+    ],
+    "motivations": [
+      "Scotland's safety",
+      "justice",
+      "family"
+    ],
+    "background": "A Scottish nobleman wary of disorder and tyranny."
+  },
+  {
+    "character_id": "duncan",
+    "name": "Duncan",
+    "role": "King of Scotland",
+    "personality": [
+      "generous",
+      "trusting",
+      "just"
+    ],
+    "motivations": [
+      "peace",
+      "loyalty",
+      "the welfare of Scotland"
+    ],
+    "background": "The king whose visit to Inverness brings Macbeth to a moral and political crisis.",
+    "playable": false
+  },
+  {
+    "character_id": "malcolm",
+    "name": "Malcolm",
+    "role": "Prince of Cumberland and heir to Scotland",
+    "personality": [
+      "measured",
+      "cautious",
+      "resolute"
+    ],
+    "motivations": [
+      "justice",
+      "Scotland's safety",
+      "legitimate rule"
+    ],
+    "background": "Duncan's elder son, forced into exile after his father's murder and later a leader of resistance.",
+    "playable": false
+  },
+  {
+    "character_id": "fleance",
+    "name": "Fleance",
+    "role": "Banquo's son",
+    "personality": [
+      "alert",
+      "young",
+      "resourceful"
+    ],
+    "motivations": [
+      "survival",
+      "family"
+    ],
+    "background": "Banquo's son whose fate determines whether the prophecy about Banquo's line remains possible.",
+    "playable": false
+  },
+  {
+    "character_id": "lady_macduff",
+    "name": "Lady Macduff",
+    "role": "Macduff's wife",
+    "personality": [
+      "protective",
+      "frank",
+      "courageous"
+    ],
+    "motivations": [
+      "family",
+      "safety",
+      "truth"
+    ],
+    "background": "Macduff's wife, left in Fife while her husband seeks support for Scotland.",
+    "playable": false
+  },
+  {
+    "character_id": "macduff_child",
+    "name": "Macduff's child",
+    "role": "A child of Fife",
+    "personality": [
+      "curious",
+      "spirited",
+      "trusting"
+    ],
+    "motivations": [
+      "family",
+      "safety"
+    ],
+    "background": "A child in Macduff's household, endangered by Macbeth's command.",
+    "playable": false
+  }
+]

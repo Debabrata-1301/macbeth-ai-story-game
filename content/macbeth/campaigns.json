@@ -1,0 +1,103 @@
+[
+  {
+    "campaign_id": "macbeth",
+    "playable_character_id": "macbeth",
+    "title": "The Crown’s Shadow",
+    "objective": "Win the crown without losing yourself—or survive ambition’s ruin.",
+    "introduction": "A celebrated thane hears a prophecy and must decide what power is worth.",
+    "starting_scene_id": "heath_before_battle",
+    "scene_ids": [
+      "heath_before_battle",
+      "weird_sisters",
+      "forres_hopeful",
+      "forres_shadowed",
+      "banquo_counsel",
+      "inverness_letter",
+      "solitary_road",
+      "patient_ending",
+      "ambition_ending",
+      "solitary_ending",
+      "act2_dagger_vision",
+      "act2_bloody_hands",
+      "act2_discovery",
+      "act2_succession",
+      "act2_coronation",
+      "act3_banquo_prophecy",
+      "act3_ambush",
+      "act3_banquet",
+      "act3_ghost",
+      "act3_opposition",
+      "act4_apparitions",
+      "act4_macduff_household",
+      "act4_england",
+      "act4_rebellion",
+      "act5_sleepwalking",
+      "act5_birnam_wood",
+      "act5_siege",
+      "act5_final_confrontation",
+      "duncan_spared_ending",
+      "macbeth_confession_ending",
+      "scotland_settlement_ending",
+      "macbeth_surrender_ending",
+      "tragic_tragedy_ending",
+      "banquo_lineage_ending",
+      "tyrant_crown_ending"
+    ],
+    "legacy": true
+  },
+  {
+    "campaign_id": "lady_macbeth",
+    "playable_character_id": "lady_macbeth",
+    "title": "The Queen’s Conscience",
+    "objective": "Shape the crown’s rise, reckon with its cost, and choose what remains.",
+    "introduction": "A letter arrives at Inverness. Your ambition, guilt, influence, and future are yours to shape.",
+    "starting_scene_id": "lady_letter",
+    "scene_ids": [
+      "lady_letter",
+      "lady_duncan",
+      "lady_night",
+      "lady_queen",
+      "lady_banquet",
+      "lady_ghost",
+      "lady_crisis",
+      "lady_spared",
+      "lady_confession",
+      "lady_reconciliation",
+      "lady_survival"
+    ]
+  },
+  {
+    "campaign_id": "banquo",
+    "playable_character_id": "banquo",
+    "title": "The Father’s Prophecy",
+    "objective": "Investigate the prophecy, protect Fleance, and determine what future survives.",
+    "introduction": "The witches promise Macbeth a crown and your descendants a royal line. Choose your own response.",
+    "starting_scene_id": "banquo_heath",
+    "scene_ids": [
+      "banquo_heath",
+      "banquo_forres",
+      "banquo_court",
+      "banquo_ambush",
+      "banquo_feast",
+      "banquo_survival",
+      "banquo_lineage"
+    ]
+  },
+  {
+    "campaign_id": "macduff",
+    "playable_character_id": "macduff",
+    "title": "The Thane of Fife",
+    "objective": "Protect your family, build resistance, and determine Scotland’s next rule.",
+    "introduction": "Macbeth’s rise unsettles Scotland. Your family is at home in Fife; their fate is not yet decided.",
+    "starting_scene_id": "macduff_fife",
+    "scene_ids": [
+      "macduff_fife",
+      "macduff_court",
+      "macduff_family",
+      "macduff_england",
+      "macduff_birnam",
+      "macduff_victory",
+      "macduff_trial"
+    ]
+  }
+]
