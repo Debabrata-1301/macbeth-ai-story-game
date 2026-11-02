@@ -20,12 +20,6 @@ jobs:
       fail-fast: false
       matrix:
         python-version: ["3.11", "3.13", "3.14"]
-    env:
-      SQLITE_PATH: ${{ runner.temp }}/macbeth-ci.sqlite3
-      FAISS_INDEX_DIR: ${{ runner.temp }}/faiss
-      RAG_METADATA_PATH: ${{ runner.temp }}/faiss/metadata.json
-      RAG_CHUNKS_PATH: ${{ runner.temp }}/chunks.json
-      COVERAGE_FILE: ${{ runner.temp }}/.coverage
     steps:
       - name: Check out source
         uses: actions/checkout@v7
@@ -44,6 +38,12 @@ jobs:
         run: python -m ruff check src tests
 
       - name: Run backend tests and generate coverage
+        env:
+          SQLITE_PATH: ${{ runner.temp }}/macbeth-ci.sqlite3
+          FAISS_INDEX_DIR: ${{ runner.temp }}/faiss
+          RAG_METADATA_PATH: ${{ runner.temp }}/faiss/metadata.json
+          RAG_CHUNKS_PATH: ${{ runner.temp }}/chunks.json
+          COVERAGE_FILE: ${{ runner.temp }}/.coverage
         run: >-
           python -m pytest -p no:cacheprovider
           --basetemp="$RUNNER_TEMP/pytest"

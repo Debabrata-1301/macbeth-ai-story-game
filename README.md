@@ -191,7 +191,7 @@ Two GitHub Actions workflows are defined under `.github/workflows/`:
 - `backend-ci.yml` runs Ruff and the complete backend test suite, including RAG tests, on Python 3.11, 3.13, and 3.14. Tests use temporary SQLite databases and synthetic PDF/FAISS fixtures. Coverage is printed and written as XML in the runner's temporary directory.
 - `frontend-ci.yml` uses Node.js 26 LTS, installs the lockfile with `npm ci`, runs `npm test`, and runs `npm run build` (which includes both TypeScript checks).
 
-Normal CI does not start Ollama or download models. The real-model narrative evaluation and `npm run test:e2e:local` remain opt-in because they require a separately installed local Ollama service, `qwen3:4b`, `nomic-embed-text`, and a locally built FAISS index. These workflows have not run remotely because this directory has no GitHub repository. CI status badges will be added after a repository exists and the workflows have actually run.
+Normal CI does not start Ollama or download models. The real-model narrative evaluation and `npm run test:e2e:local` remain opt-in because they require a separately installed local Ollama service, `qwen3:4b`, `nomic-embed-text`, and a locally built FAISS index. GitHub Actions results are available from the repository’s Actions tab. CI status badges will be added after both workflows pass.
 
 ## API surface
 
@@ -244,7 +244,7 @@ For implementation history and evaluation details, see the [story architecture a
 
 These items are not implemented:
 
-- Run the configured GitHub Actions workflows after a GitHub repository is available.
+- Add CI status badges after both GitHub Actions workflows pass.
 - Make RAG onboarding reproducible with a rights-cleared source and documented index provenance.
 - Add authentication and per-user save ownership only if multi-user or network deployment becomes a project goal.
 
